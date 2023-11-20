@@ -2,7 +2,7 @@
 
 body, html {
   font-family: 'Source Sans Pro', sans-serif;
-  background-color: #1d243d;
+  background-color: #f6f9ff;
   padding: 0;
   margin: 0;
 }
@@ -20,24 +20,24 @@ body, html {
   position: absolute;
   text-align: center;
   transform: translateX(-50%);
-  background-color: rgb( 33, 41, 66 );
+  background-color: #f0f0f0;
   border-radius: 9px;
-  border-top: 10px solid rgb(224, 183, 0);
+  border-top: 10px solid rgb(243, 198, 0);
   border-bottom: 10px solid #57befd;
   width: 400px;
   height: 500px;
-  box-shadow: 1px 1px 108.8px 19.2px rgb(25,31,53);
+  box-shadow: 1px 1px 108.8px 19.2px rgb(220, 228, 238);
 }
 
 .box h4 {
   font-family: 'Source Sans Pro', sans-serif;
   color: rgb(224, 183, 0); 
-  font-size: 18px;
+  font-size: 28px;
   margin-top:94px;;
 }
 
 .box h4 span {
-  color: #dfdeee;
+  color: #262e49;
   font-weight: lighter;
 }
 
@@ -53,13 +53,13 @@ body, html {
 .box input[type = "text"],.box input[type = "password"] {
   display: block;
   margin: 20px auto;
-  background: #262e49;
+  background: #dfeaf1;
   border: 0;
   border-radius: 5px;
   padding: 14px 10px;
   width: 320px;
   outline: none;
-  color: #d6d6d6;
+  color: #262e49;
       -webkit-transition: all .2s ease-out;
     -moz-transition: all .2s ease-out;
     -ms-transition: all .2s ease-out;
@@ -109,7 +109,7 @@ label span {
   border-radius: 100px;
   width: 340px;
   height: 49px;
-  font-size: 18px;
+  font-size: 20px;
   position: absolute;
   top: 79%;
   left: 8%;
@@ -118,7 +118,7 @@ label span {
 }
 
 .btn1:hover {
-  background: #5d33e6;
+  background: rgb(243, 198, 0);
 }
 
 .rmb {
@@ -155,7 +155,7 @@ label span {
 .typcn {
   position: absolute;
   left: 339px;
-  top: 282px;
+  top: 307px;
   color: #3b476b;
   font-size: 22px;
   cursor: pointer;

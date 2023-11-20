@@ -15,20 +15,18 @@ const createWindow = () => {
       preload: path.join(__dirname, "preload.js"),
     },
     show: false,
-    frame: false,
+    //frame: false,
   });
-  nativeTheme.themeSource = 'dark';
+  nativeTheme.themeSource = 'light';
   Menu.setApplicationMenu(null);
   mainWindow.loadFile(path.join(__dirname, "Login-Win", 'index.html'));
   mainWindow.maximize();
   mainWindow.show();
   
   ipcMain.handle("login", () => {
-    nativeTheme.themeSource = 'light'
     mainWindow.loadFile(path.join(__dirname, "indexMain.html"));
   });
   ipcMain.handle("logout", () => {
-    nativeTheme.themeSource = "dark";
     mainWindow.loadFile(path.join(__dirname, "Login-Win", "index.html"));
   });
 };
