@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - NiceAdmin Bootstrap Template</title>
+  <title>KSOFT - Dashboard</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -44,12 +44,8 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
 
     <div class="d-flex align-items-center justify-content-between">
-      <a href="index.html" class="logo d-flex align-items-center">
-        <img src="assets/img/logo.png" alt="">
-        <span class="d-none d-lg-block">KSOFT</span>
-      </a>
       <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div><!-- End Logo -->
+    </div><!--<img src="assets/img/logo.png" alt=""> End Logo -->
 
 
     <nav class="header-nav ms-auto">
@@ -61,7 +57,7 @@
           </a>
         </li><!-- End Search Icon-->
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" hidden>
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-bell"></i>
@@ -136,7 +132,7 @@
 
         </li><!-- End Notification Nav -->
 
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" hidden>
 
           <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
             <i class="bi bi-chat-left-text"></i>
@@ -205,14 +201,15 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">K. Anderson</span>
+            <img src="assets/img/User-Male-1000px.png" alt="Profile" class="rounded-circle">
+            <span class="d-none d-md-block dropdown-toggle ps-2">C. Gama</span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Kevin Anderson</h6>
-              <span>Web Designer</span>
+              <h6>Carmo Da Gama</h6>
+              <span>Software Dav:</span>
+              <span>Código de Acesso</span>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -221,7 +218,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
                 <i class="bi bi-person"></i>
-                <span>My Profile</span>
+                <span>Usuários</span>
               </a>
             </li>
             <li>
@@ -230,8 +227,8 @@
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
-                <i class="bi bi-gear"></i>
-                <span>Account Settings</span>
+                <i class="ri-profile-line"></i>
+                <span>Perfis de Acessos</span>
               </a>
             </li>
             <li>
@@ -240,8 +237,8 @@
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="pages-faq.html">
-                <i class="bi bi-question-circle"></i>
-                <span>Need Help?</span>
+                <i class="bx bxs-file-export"></i>
+                <span>SAFT</span>
               </a>
             </li>
             <li>
@@ -250,8 +247,14 @@
 
             <li>
               <a class="dropdown-item d-flex align-items-center" href="#">
+                <i class="bx bxs-data"></i>
+                <span>Backup</span>
+              </a>
+            </li>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="#" onclick="events.logout()">
                 <i class="bi bi-box-arrow-right"></i>
-                <span>Sign Out</span>
+                <span>Logout</span>
               </a>
             </li>
 
@@ -267,87 +270,40 @@
   <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-item">
-        <a class="nav-link " href="index.html">
-          <i class="bi bi-grid"></i>
-          <span>Dashboard</span>
-        </a>
-      </li><!-- End Dashboard Nav -->
-
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Components</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-house-fill"></i><span>INICIO</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+          <li class="nav-item">
+            <a class="nav-link " href="#">
+              <i class="bi bi-grid"></i>
+              <span>Dashboard</span>
+            </a>
+          </li><!-- End Dashboard Nav -->
           <li>
-            <a href="components-alerts.html">
-              <i class="bi bi-circle"></i><span>Alerts</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Turno</span>
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
-              <i class="bi bi-circle"></i><span>Accordion</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Documentos</span>
             </a>
           </li>
           <li>
-            <a href="components-badges.html">
-              <i class="bi bi-circle"></i><span>Badges</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Historico do Turnos</span>
             </a>
           </li>
           <li>
-            <a href="components-breadcrumbs.html">
-              <i class="bi bi-circle"></i><span>Breadcrumbs</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Empresa</span>
             </a>
           </li>
           <li>
-            <a href="components-buttons.html">
-              <i class="bi bi-circle"></i><span>Buttons</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-cards.html">
-              <i class="bi bi-circle"></i><span>Cards</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-carousel.html">
-              <i class="bi bi-circle"></i><span>Carousel</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-list-group.html">
-              <i class="bi bi-circle"></i><span>List group</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-modal.html">
-              <i class="bi bi-circle"></i><span>Modal</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tabs.html">
-              <i class="bi bi-circle"></i><span>Tabs</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-pagination.html">
-              <i class="bi bi-circle"></i><span>Pagination</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-progress.html">
-              <i class="bi bi-circle"></i><span>Progress</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-spinners.html">
-              <i class="bi bi-circle"></i><span>Spinners</span>
-            </a>
-          </li>
-          <li>
-            <a href="components-tooltips.html">
-              <i class="bi bi-circle"></i><span>Tooltips</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Clientes</span>
             </a>
           </li>
         </ul>
@@ -355,27 +311,22 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-journal-text"></i><span>Forms</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-journal-text"></i><span>FACTURAÇÃO</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="forms-elements.html">
-              <i class="bi bi-circle"></i><span>Form Elements</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Factura Recibo</span>
             </a>
           </li>
           <li>
-            <a href="forms-layouts.html">
-              <i class="bi bi-circle"></i><span>Form Layouts</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Factura</span>
             </a>
           </li>
           <li>
-            <a href="forms-editors.html">
-              <i class="bi bi-circle"></i><span>Form Editors</span>
-            </a>
-          </li>
-          <li>
-            <a href="forms-validation.html">
-              <i class="bi bi-circle"></i><span>Form Validation</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Factura Proforma</span>
             </a>
           </li>
         </ul>
@@ -383,17 +334,32 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-layout-text-window-reverse"></i><span>Tables</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-layout-text-window-reverse"></i><span>ESTOQUE</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="tables-general.html">
-              <i class="bi bi-circle"></i><span>General Tables</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Produtos</span>
             </a>
           </li>
           <li>
-            <a href="tables-data.html">
-              <i class="bi bi-circle"></i><span>Data Tables</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Estoques</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Entrada de Produtos</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Saida de Produtos</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Transferência de Produtos</span>
             </a>
           </li>
         </ul>
@@ -401,101 +367,27 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#charts-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-bar-chart"></i><span>Charts</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-bar-chart"></i><span>FINANÇAS</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-chartjs.html">
-              <i class="bi bi-circle"></i><span>Chart.js</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Receber Pagamentos</span>
             </a>
           </li>
           <li>
-            <a href="charts-apexcharts.html">
-              <i class="bi bi-circle"></i><span>ApexCharts</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Formas de Pagamentos</span>
             </a>
           </li>
           <li>
-            <a href="charts-echarts.html">
-              <i class="bi bi-circle"></i><span>ECharts</span>
+            <a href="#">
+              <i class="bi bi-circle"></i><span>Impostos</span>
             </a>
           </li>
         </ul>
       </li><!-- End Charts Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" data-bs-target="#icons-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-gem"></i><span>Icons</span><i class="bi bi-chevron-down ms-auto"></i>
-        </a>
-        <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-          <li>
-            <a href="icons-bootstrap.html">
-              <i class="bi bi-circle"></i><span>Bootstrap Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href="icons-remix.html">
-              <i class="bi bi-circle"></i><span>Remix Icons</span>
-            </a>
-          </li>
-          <li>
-            <a href="icons-boxicons.html">
-              <i class="bi bi-circle"></i><span>Boxicons</span>
-            </a>
-          </li>
-        </ul>
-      </li><!-- End Icons Nav -->
-
-      <li class="nav-heading">Pages</li>
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="users-profile.html">
-          <i class="bi bi-person"></i>
-          <span>Profile</span>
-        </a>
-      </li><!-- End Profile Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.html">
-          <i class="bi bi-question-circle"></i>
-          <span>F.A.Q</span>
-        </a>
-      </li><!-- End F.A.Q Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.html">
-          <i class="bi bi-envelope"></i>
-          <span>Contact</span>
-        </a>
-      </li><!-- End Contact Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-register.html">
-          <i class="bi bi-card-list"></i>
-          <span>Register</span>
-        </a>
-      </li><!-- End Register Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-          <i class="bi bi-box-arrow-in-right"></i>
-          <span>Login</span>
-        </a>
-      </li><!-- End Login Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-error-404.html">
-          <i class="bi bi-dash-circle"></i>
-          <span>Error 404</span>
-        </a>
-      </li><!-- End Error 404 Page Nav -->
-
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-blank.html">
-          <i class="bi bi-file-earmark"></i>
-          <span>Blank</span>
-        </a>
-      </li><!-- End Blank Page Nav -->
-
+      
     </ul>
 
   </aside><!-- End Sidebar-->
@@ -506,7 +398,7 @@
       <h1>Dashboard</h1>
       <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item"><a href="#">Inicio</a></li>
           <li class="breadcrumb-item active">Dashboard</li>
         </ol>
       </nav>
@@ -527,17 +419,17 @@
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
+                      <h6>Filtro</h6>
                     </li>
 
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><a class="dropdown-item" href="#">Hoje</a></li>
+                    <li><a class="dropdown-item" href="#">Este Mês</a></li>
+                    <li><a class="dropdown-item" href="#">Este Ano</a></li>
                   </ul>
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Sales <span>| Today</span></h5>
+                  <h5 class="card-title">Vendas <span>| Hoje</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -562,24 +454,24 @@
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
+                      <h6>Filtro</h6>
                     </li>
 
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><a class="dropdown-item" href="#">Hoje</a></li>
+                    <li><a class="dropdown-item" href="#">Este Mês</a></li>
+                    <li><a class="dropdown-item" href="#">Este Ano</a>></li>
                   </ul>
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Revenue <span>| This Month</span></h5>
+                  <h5 class="card-title">Receita <span>| Este Mês</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                       <i class="bi bi-currency-dollar"></i>
                     </div>
                     <div class="ps-3">
-                      <h6>$3,264</h6>
+                      <h6>AKZ 3,264</h6>
                       <span class="text-success small pt-1 fw-bold">8%</span> <span class="text-muted small pt-2 ps-1">increase</span>
 
                     </div>
@@ -598,17 +490,17 @@
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
+                      <h6>Filtro</h6>
                     </li>
 
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><a class="dropdown-item" href="#">Hoje</a></li>
+                    <li><a class="dropdown-item" href="#">Este Mês</a></li>
+                    <li><a class="dropdown-item" href="#">Este Ano</a>></li>
                   </ul>
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Customers <span>| This Year</span></h5>
+                  <h5 class="card-title">Clientes <span>| Este Ano</span></h5>
 
                   <div class="d-flex align-items-center">
                     <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
@@ -634,17 +526,17 @@
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
+                      <h6>Filtro</h6>
                     </li>
 
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><a class="dropdown-item" href="#">Hoje</a></li>
+                    <li><a class="dropdown-item" href="#">Este Mês</a></li>
+                    <li><a class="dropdown-item" href="#">Este Ano</a>></li>
                   </ul>
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Reports <span>/Today</span></h5>
+                  <h5 class="card-title">Relatórios <span>/Hoje</span></h5>
 
                   <!-- Line Chart -->
                   <div id="reportsChart"></div>
@@ -653,13 +545,13 @@
                     document.addEventListener("DOMContentLoaded", () => {
                       new ApexCharts(document.querySelector("#reportsChart"), {
                         series: [{
-                          name: 'Sales',
+                          name: 'Vendas',
                           data: [31, 40, 28, 51, 42, 82, 56],
                         }, {
-                          name: 'Revenue',
+                          name: 'Receita',
                           data: [11, 32, 45, 32, 34, 52, 41]
                         }, {
-                          name: 'Customers',
+                          name: 'Clientes',
                           data: [15, 11, 32, 18, 9, 24, 11]
                         }],
                         chart: {
@@ -716,63 +608,63 @@
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
+                      <h6>Filtro</h6>
                     </li>
 
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><a class="dropdown-item" href="#">Hoje</a></li>
+                    <li><a class="dropdown-item" href="#">Este Mês</a></li>
+                    <li><a class="dropdown-item" href="#">Este Ano</a>></li>
                   </ul>
                 </div>
 
                 <div class="card-body">
-                  <h5 class="card-title">Recent Sales <span>| Today</span></h5>
+                  <h5 class="card-title">Vendas Recentes<span>| Hoje</span></h5>
 
                   <table class="table table-borderless datatable">
                     <thead>
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Customer</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Status</th>
+                        <th scope="col">ID</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Estado</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <th scope="row"><a href="#">#2457</a></th>
+                        <th scope="row"><a href="#">2457</a></th>
                         <td>Brandon Jacob</td>
-                        <td><a href="#" class="text-primary">At praesentium minu</a></td>
-                        <td>$64</td>
-                        <td><span class="badge bg-success">Approved</span></td>
+                        <td><a href="#" class="text-primary">Relogio RB</a></td>
+                        <td>AKZ 9064</td>
+                        <td><span class="badge bg-success">Aprovado</span></td>
                       </tr>
                       <tr>
-                        <th scope="row"><a href="#">#2147</a></th>
+                        <th scope="row"><a href="#">2147</a></th>
                         <td>Bridie Kessler</td>
-                        <td><a href="#" class="text-primary">Blanditiis dolor omnis similique</a></td>
-                        <td>$47</td>
-                        <td><span class="badge bg-warning">Pending</span></td>
+                        <td><a href="#" class="text-primary">Auriculare da Gama</a></td>
+                        <td>AKZ 44047</td>
+                        <td><span class="badge bg-warning">Pendente</span></td>
                       </tr>
                       <tr>
-                        <th scope="row"><a href="#">#2049</a></th>
+                        <th scope="row"><a href="#">2049</a></th>
                         <td>Ashleigh Langosh</td>
-                        <td><a href="#" class="text-primary">At recusandae consectetur</a></td>
-                        <td>$147</td>
-                        <td><span class="badge bg-success">Approved</span></td>
+                        <td><a href="#" class="text-primary">Perfume RB</a></td>
+                        <td>AKZ 9147</td>
+                        <td><span class="badge bg-success">Aprovado</span></td>
                       </tr>
                       <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
+                        <th scope="row"><a href="#">2644</a></th>
                         <td>Angus Grady</td>
-                        <td><a href="#" class="text-primar">Ut voluptatem id earum et</a></td>
-                        <td>$67</td>
-                        <td><span class="badge bg-danger">Rejected</span></td>
+                        <td><a href="#" class="text-primar">Calçado</a></td>
+                        <td>AKz 80999</td>
+                        <td><span class="badge bg-danger">Rejeitado</span></td>
                       </tr>
                       <tr>
-                        <th scope="row"><a href="#">#2644</a></th>
+                        <th scope="row"><a href="#">2644</a></th>
                         <td>Raheem Lehner</td>
-                        <td><a href="#" class="text-primary">Sunt similique distinctio</a></td>
-                        <td>$165</td>
-                        <td><span class="badge bg-success">Approved</span></td>
+                        <td><a href="#" class="text-primary">Oculos CG</a></td>
+                        <td>AKZ 9165</td>
+                        <td><span class="badge bg-success">Aprovado</span></td>
                       </tr>
                     </tbody>
                   </table>
@@ -790,63 +682,63 @@
                   <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
                   <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                     <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
+                      <h6>Filtro</h6>
                     </li>
 
-                    <li><a class="dropdown-item" href="#">Today</a></li>
-                    <li><a class="dropdown-item" href="#">This Month</a></li>
-                    <li><a class="dropdown-item" href="#">This Year</a></li>
+                    <li><a class="dropdown-item" href="#">Hoje</a></li>
+                    <li><a class="dropdown-item" href="#">Este Mês</a></li>
+                    <li><a class="dropdown-item" href="#">Este Ano</a>></li>
                   </ul>
                 </div>
 
                 <div class="card-body pb-0">
-                  <h5 class="card-title">Top Selling <span>| Today</span></h5>
+                  <h5 class="card-title">Mais vendido <span>| Hoje</span></h5>
 
                   <table class="table table-borderless">
                     <thead>
                       <tr>
-                        <th scope="col">Preview</th>
-                        <th scope="col">Product</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Sold</th>
-                        <th scope="col">Revenue</th>
+                        <th scope="col">Visualização</th>
+                        <th scope="col">Produto</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Vendido</th>
+                        <th scope="col">Receita</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
                         <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Ut inventore ipsa voluptas nulla</a></td>
-                        <td>$64</td>
+                        <td><a href="#" class="text-primary fw-bold">Calçado</a></td>
+                        <td>AKZ 64000</td>
                         <td class="fw-bold">124</td>
-                        <td>$5,828</td>
+                        <td>AKZ 5828</td>
                       </tr>
                       <tr>
                         <th scope="row"><a href="#"><img src="assets/img/product-2.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Exercitationem similique doloremque</a></td>
-                        <td>$46</td>
+                        <td><a href="#" class="text-primary fw-bold">Relogio</a></td>
+                        <td>AKZ 46000</td>
                         <td class="fw-bold">98</td>
-                        <td>$4,508</td>
+                        <td>AKZ 40508</td>
                       </tr>
                       <tr>
                         <th scope="row"><a href="#"><img src="assets/img/product-3.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Doloribus nisi exercitationem</a></td>
-                        <td>$59</td>
+                        <td><a href="#" class="text-primary fw-bold">Perfume RB</a></td>
+                        <td>AKZ 8859</td>
                         <td class="fw-bold">74</td>
-                        <td>$4,366</td>
+                        <td>AKZ 40366</td>
                       </tr>
                       <tr>
                         <th scope="row"><a href="#"><img src="assets/img/product-4.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Officiis quaerat sint rerum error</a></td>
-                        <td>$32</td>
+                        <td><a href="#" class="text-primary fw-bold">Oculos CG</a></td>
+                        <td>AKZ 7032</td>
                         <td class="fw-bold">63</td>
-                        <td>$2,016</td>
+                        <td>AKZ 22016</td>
                       </tr>
                       <tr>
                         <th scope="row"><a href="#"><img src="assets/img/product-5.jpg" alt=""></a></th>
-                        <td><a href="#" class="text-primary fw-bold">Sit unde debitis delectus repellendus</a></td>
-                        <td>$79</td>
+                        <td><a href="#" class="text-primary fw-bold">Auriculares Da Gama</a></td>
+                        <td>AKZ 79000</td>
                         <td class="fw-bold">41</td>
-                        <td>$3,239</td>
+                        <td>AKZ 38239</td>
                       </tr>
                     </tbody>
                   </table>
@@ -868,17 +760,17 @@
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
+                  <h6>Filtro</h6>
                 </li>
 
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
+                <li><a class="dropdown-item" href="#">Hoje</a></li>
+                <li><a class="dropdown-item" href="#">Este Mês</a></li>
+                <li><a class="dropdown-item" href="#">Este Ano</a>></li>
               </ul>
             </div>
 
             <div class="card-body">
-              <h5 class="card-title">Recent Activity <span>| Today</span></h5>
+              <h5 class="card-title">Actividades Recentes <span>| Hoje</span></h5>
 
               <div class="activity">
 
@@ -886,7 +778,7 @@
                   <div class="activite-label">32 min</div>
                   <i class='bi bi-circle-fill activity-badge text-success align-self-start'></i>
                   <div class="activity-content">
-                    Quia quae rerum <a href="#" class="fw-bold text-dark">explicabo officiis</a> beatae
+                    Documento <a href="#" class="fw-bold text-dark">Factura Recibo</a> Gravado
                   </div>
                 </div><!-- End activity item-->
 
@@ -894,7 +786,7 @@
                   <div class="activite-label">56 min</div>
                   <i class='bi bi-circle-fill activity-badge text-danger align-self-start'></i>
                   <div class="activity-content">
-                    Voluptatem blanditiis blanditiis eveniet
+                    Documento <a href="#" class="fw-bold text-dark">Factura Recibo</a> Cancelado
                   </div>
                 </div><!-- End activity item-->
 
@@ -902,31 +794,31 @@
                   <div class="activite-label">2 hrs</div>
                   <i class='bi bi-circle-fill activity-badge text-primary align-self-start'></i>
                   <div class="activity-content">
-                    Voluptates corrupti molestias voluptatem
+                    Documento <a href="#" class="fw-bold text-dark">Transferência de Produtos</a> Gravado
                   </div>
                 </div><!-- End activity item-->
 
                 <div class="activity-item d-flex">
-                  <div class="activite-label">1 day</div>
+                  <div class="activite-label">1 dia</div>
                   <i class='bi bi-circle-fill activity-badge text-info align-self-start'></i>
                   <div class="activity-content">
-                    Tempore autem saepe <a href="#" class="fw-bold text-dark">occaecati voluptatem</a> tempore
+                    Documento <a href="#" class="fw-bold text-dark">Entrada de Produtos</a> Gravado
                   </div>
                 </div><!-- End activity item-->
 
                 <div class="activity-item d-flex">
-                  <div class="activite-label">2 days</div>
+                  <div class="activite-label">2 dias</div>
                   <i class='bi bi-circle-fill activity-badge text-warning align-self-start'></i>
                   <div class="activity-content">
-                    Est sit eum reiciendis exercitationem
+                    Documento <a href="#" class="fw-bold text-dark">Saida de Produtos</a> Gravado
                   </div>
                 </div><!-- End activity item-->
 
                 <div class="activity-item d-flex">
-                  <div class="activite-label">4 weeks</div>
+                  <div class="activite-label">4 sm</div>
                   <i class='bi bi-circle-fill activity-badge text-muted align-self-start'></i>
                   <div class="activity-content">
-                    Dicta dolorem harum nulla eius. Ut quidem quidem sit quas
+                    Documento <a href="#" class="fw-bold text-dark">Recibo</a> Gravado
                   </div>
                 </div><!-- End activity item-->
 
@@ -941,17 +833,17 @@
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
+                  <h6>Filtro</h6>
                 </li>
 
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
+                <li><a class="dropdown-item" href="#">Hoje</a></li>
+                <li><a class="dropdown-item" href="#">Este Mês</a></li>
+                <li><a class="dropdown-item" href="#">Este Ano</a>></li>
               </ul>
             </div>
 
             <div class="card-body pb-0">
-              <h5 class="card-title">Budget Report <span>| This Month</span></h5>
+              <h5 class="card-title">Relatório de orçamento <span>| Este Mês</span></h5>
 
               <div id="budgetChart" style="min-height: 400px;" class="echart"></div>
 
@@ -959,28 +851,28 @@
                 document.addEventListener("DOMContentLoaded", () => {
                   var budgetChart = echarts.init(document.querySelector("#budgetChart")).setOption({
                     legend: {
-                      data: ['Allocated Budget', 'Actual Spending']
+                      data: ['Orçamento Alocado', 'Gastos reais']
                     },
                     radar: {
                       // shape: 'circle',
                       indicator: [{
-                          name: 'Sales',
+                          name: 'Vendas',
                           max: 6500
                         },
                         {
-                          name: 'Administration',
+                          name: 'Administração',
                           max: 16000
                         },
                         {
-                          name: 'Information Technology',
+                          name: 'Tecnologia da Informação',
                           max: 30000
                         },
                         {
-                          name: 'Customer Support',
+                          name: 'Suporte ao cliente',
                           max: 38000
                         },
                         {
-                          name: 'Development',
+                          name: 'Desenvolvimento',
                           max: 52000
                         },
                         {
@@ -990,15 +882,15 @@
                       ]
                     },
                     series: [{
-                      name: 'Budget vs spending',
+                      name: 'Orçamento versus gastos',
                       type: 'radar',
                       data: [{
                           value: [4200, 3000, 20000, 35000, 50000, 18000],
-                          name: 'Allocated Budget'
+                          name: 'Orçamento Alocado'
                         },
                         {
                           value: [5000, 14000, 28000, 26000, 42000, 21000],
-                          name: 'Actual Spending'
+                          name: 'Gastos reais'
                         }
                       ]
                     }]
@@ -1015,17 +907,17 @@
               <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
               <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                 <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
+                  <h6>Filtro</h6>
                 </li>
 
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
+                <li><a class="dropdown-item" href="#">Hoje</a></li>
+                <li><a class="dropdown-item" href="#">Este Mês</a></li>
+                <li><a class="dropdown-item" href="#">Este Ano</a>></li>
               </ul>
             </div>
 
             <div class="card-body pb-0">
-              <h5 class="card-title">Website Traffic <span>| Today</span></h5>
+              <h5 class="card-title">Tráfego dos Produtos <span>| Hoje</span></h5>
 
               <div id="trafficChart" style="min-height: 400px;" class="echart"></div>
 
@@ -1060,7 +952,7 @@
                       },
                       data: [{
                           value: 1048,
-                          name: 'Search Engine'
+                          name: 'Mecanismo de busca'
                         },
                         {
                           value: 735,
@@ -1068,15 +960,15 @@
                         },
                         {
                           value: 580,
-                          name: 'Email'
+                          name: 'Estoque'
                         },
                         {
                           value: 484,
-                          name: 'Union Ads'
+                          name: 'Queixas'
                         },
                         {
                           value: 300,
-                          name: 'Video Ads'
+                          name: 'Sugestões'
                         }
                       ]
                     }]
@@ -1087,58 +979,9 @@
             </div>
           </div><!-- End Website Traffic -->
 
-          <!-- News & Updates Traffic -->
-          <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
-
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
-              </ul>
+          
             </div>
 
-            <div class="card-body pb-0">
-              <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
-
-              <div class="news">
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-1.jpg" alt="">
-                  <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
-                  <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-2.jpg" alt="">
-                  <h4><a href="#">Quidem autem et impedit</a></h4>
-                  <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-3.jpg" alt="">
-                  <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
-                  <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-4.jpg" alt="">
-                  <h4><a href="#">Laborum corporis quo dara net para</a></h4>
-                  <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
-                </div>
-
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-5.jpg" alt="">
-                  <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
-                  <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
-                </div>
-
-              </div><!-- End sidebar recent posts-->
-
-            </div>
           </div><!-- End News & Updates -->
 
         </div><!-- End Right side columns -->
@@ -1149,7 +992,7 @@
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer id="footer" class="footer">
+  <footer id="footer" class="footer" hidden>
     <div class="copyright">
       &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
     </div>

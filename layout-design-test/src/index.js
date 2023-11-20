@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, nativeTheme } = require("electron");
+const { app, BrowserWindow, Menu, nativeTheme, ipcMain } = require("electron");
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -12,22 +12,34 @@ const createWindow = () => {
     width: 900,
     height: 900,
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js'),
+      preload: path.join(__dirname, "preload.js"),
     },
-    show: false
+    show: false,
+    frame: false,
   });
-  nativeTheme.themeSource = 'light';
+  nativeTheme.themeSource = 'dark';
   Menu.setApplicationMenu(null);
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  mainWindow.loadFile(path.join(__dirname, "Login-Win", 'index.html'));
   mainWindow.maximize();
   mainWindow.show();
   
+  ipcMain.handle("login", () => {
+    nativeTheme.themeSource = 'light'
+    mainWindow.loadFile(path.join(__dirname, "indexMain.html"));
+  });
+  ipcMain.handle("logout", () => {
+    nativeTheme.themeSource = "dark";
+    mainWindow.loadFile(path.join(__dirname, "Login-Win", "index.html"));
+  });
 };
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on('ready', createWindow);
+app.on('ready',() => {
+  
+   createWindow();
+});
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
