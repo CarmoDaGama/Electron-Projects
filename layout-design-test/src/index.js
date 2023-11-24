@@ -29,6 +29,14 @@ const createWindow = () => {
   ipcMain.handle("logout", () => {
     mainWindow.loadFile(path.join(__dirname, "Login-Win", "index.html"));
   });
+  ipcMain.handle("intoPos", () => {
+    mainWindow.loadFile(path.join(__dirname, "POS-Win", "index.html"));
+  });
+  ipcMain.handle("backToMainWin", () => {
+    mainWindow.loadFile(path.join(__dirname, "indexMain.html"));
+  });
+  
+  
 };
 
 // This method will be called when Electron has finished

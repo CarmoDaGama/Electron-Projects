@@ -20,7 +20,7 @@ body, html {
   position: absolute;
   text-align: center;
   transform: translateX(-50%);
-  background-color: #f0f0f0;
+  background-color: #f8f9fa;
   border-radius: 9px;
   border-top: 10px solid rgb(243, 198, 0);
   border-bottom: 10px solid #57befd;
@@ -175,7 +175,7 @@ label span {
   border-radius: 5px;
   margin: 10px auto 10px;
   position: absolute;
-  top: 31%;
+  top: 35%;
   left: 7.2%;
   color: white;
   display: none;
