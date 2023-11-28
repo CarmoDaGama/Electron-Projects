@@ -7,14 +7,15 @@
 
     <!-- ====== Styles ======= -->
     <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="tab_home.css">
 </head>
 <body>
     <div class="container">
     <!-- ================== Navigation ================== -->
         <div class="navigation">
-            <ul>
+            <ul >
                 <div>
-                    <a href="#" class="old-toggle">
+                    <a href="#" class="toggle">
                         <span class="icon">
                             <ion-icon size="large" name="storefront"></ion-icon>
                         </span>
@@ -74,228 +75,122 @@
     <!-- ================== Main ================== -->
         <div id="Home" class="tabcontent main">
             <!-- ---------------- Top-Bar -------------- -->
-            <div class="topbar">
-                
-                <div class="search">
-                    <label>
-                        <input type="text" placeholder="Procure Aqui">
-                        <ion-icon name="search-outline"></ion-icon>
-                    </label>
-                </div>
-                <div class="user">
-                    <img src="../assets/img/User-Male-1000px.png" alt="">
-                </div>
-            </div>
-            <!-- ---------------- End Top-Bar -------------- -->
-            
-
-            <!-- ---------------- Cards -------------- -->
-            <div class="cardBox">
-                <div class="card">
-                    <div>
-                        <div class="numbers">1,504</div>
-                        <div class="cardName">Daily Views</div>
+            <div class="productsCard">
+                <div class="topbar">
+                    <div class="label toogle">
+                        <div class="resto-name">FACTURA RECIBO</div>
+                        <div class="date">Monday, 27 Nov 2023</div>
                     </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="eye-outline"></ion-icon>
+    
+                    <div class="search">
+                        <label>
+                            <input type="text" placeholder="Procure Aqui">
+                            <ion-icon name="search-outline"></ion-icon>
+                        </label>
                     </div>
                 </div>
+                <div class="products">
+                    <div class="cardBox">
+                    <div class="card">
+                        <div>
+                            <div class="numbers">1,504</div>
+                            <div class="cardName">Daily Views</div>
+                        </div>
 
-                <div class="card">
-                    <div>
-                        <div class="numbers">80</div>
-                        <div class="cardName">Sales</div>
+                        <div class="iconBx">
+                            <ion-icon name="eye-outline"></ion-icon>
+                        </div>
                     </div>
 
-                    <div class="iconBx">
-                        <ion-icon name="cart-outline"></ion-icon>
-                    </div>
-                </div>
+                    <div class="card">
+                        <div>
+                            <div class="numbers">80</div>
+                            <div class="cardName">Sales</div>
+                        </div>
 
-                <div class="card">
-                    <div>
-                        <div class="numbers">284</div>
-                        <div class="cardName">Comments</div>
-                    </div>
-
-                    <div class="iconBx">
-                        <ion-icon name="chatbubbles-outline"></ion-icon>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div>
-                        <div class="numbers">$7,842</div>
-                        <div class="cardName">Earning</div>
+                        <div class="iconBx">
+                            <ion-icon name="cart-outline"></ion-icon>
+                        </div>
                     </div>
 
-                    <div class="iconBx">
-                        <ion-icon name="cash-outline"></ion-icon>
+                    <div class="card">
+                        <div>
+                            <div class="numbers">284</div>
+                            <div class="cardName">Comments</div>
+                        </div>
+
+                        <div class="iconBx">
+                            <ion-icon name="chatbubbles-outline"></ion-icon>
+                        </div>
                     </div>
-                </div>
-            </div>
-            <!-- ---------------- End Cards -------------- -->
 
+                    <div class="card">
+                        <div>
+                            <div class="numbers">$7,842</div>
+                            <div class="cardName">Earning</div>
+                        </div>
 
-            
-            <!-- ----------------  Order Details List -------------- -->
-            <div class="details">
-                <div class="recentOrders">
-                    <div class="cardHeader">
-                        <h2>Recent Orders</h2>
-                        <a href="#" class="btn">View All</a>
+                        <div class="iconBx">
+                            <ion-icon name="cash-outline"></ion-icon>
+                        </div>
                     </div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <td>Name</td>
-                                <td>Price</td>
-                                <td>Payment</td>
-                                <td>Status</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
+                    </div>
+                    <div class="cardBox">
+                        <div class="card">
+                            <div>
+                                <div class="numbers">1,504</div>
+                                <div class="cardName">Daily Views</div>
+                            </div>
 
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
+                            <div class="iconBx">
+                                <ion-icon name="eye-outline"></ion-icon>
+                            </div>
+                        </div>
 
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
+                        <div class="card">
+                            <div>
+                                <div class="numbers">80</div>
+                                <div class="cardName">Sales</div>
+                            </div>
 
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
+                            <div class="iconBx">
+                                <ion-icon name="cart-outline"></ion-icon>
+                            </div>
+                        </div>
 
-                            <tr>
-                                <td>Star Refrigerator</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status delivered">Delivered</span></td>
-                            </tr>
+                        <div class="card">
+                            <div>
+                                <div class="numbers">284</div>
+                                <div class="cardName">Comments</div>
+                            </div>
 
-                            <tr>
-                                <td>Dell Laptop</td>
-                                <td>$110</td>
-                                <td>Due</td>
-                                <td><span class="status pending">Pending</span></td>
-                            </tr>
+                            <div class="iconBx">
+                                <ion-icon name="chatbubbles-outline"></ion-icon>
+                            </div>
+                        </div>
 
-                            <tr>
-                                <td>Apple Watch</td>
-                                <td>$1200</td>
-                                <td>Paid</td>
-                                <td><span class="status return">Return</span></td>
-                            </tr>
+                        <div class="card">
+                            <div>
+                                <div class="numbers">$7,842</div>
+                                <div class="cardName">Earning</div>
+                            </div>
 
-                            <tr>
-                                <td>Addidas Shoes</td>
-                                <td>$620</td>
-                                <td>Due</td>
-                                <td><span class="status inProgress">In Progress</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                            <div class="iconBx">
+                                <ion-icon name="cash-outline"></ion-icon>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <!-- ================= New Customers ================ -->
-                <div class="recentCustomers">
-                    <div class="cardHeader">
-                        <h2>Recent Customers</h2>
-                    </div>
-                    <table>
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="../assets/img/messages-3.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-                        
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="../assets/img/profile-img.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
+            </div>
+            <div class="toSale">
+                <div class="SaleProducts">
 
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="../assets/img/messages-2.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="../assets/img/profile-img.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="../assets/img/messages-1.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="../assets/img/profile-img.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="../assets/img/messages-3.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>David <br> <span>Italy</span></h4>
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td width="60px">
-                                <div class="imgBx"><img src="../assets/img/profile-img.jpg" alt=""></div>
-                            </td>
-                            <td>
-                                <h4>Amit <br> <span>India</span></h4>
-                            </td>
-                        </tr>
-                    </table>
+                </div>
+                <div class="salePayment">
+                    
                 </div>
             </div>
-            <!-- ---------------- End Order Details List -------------- -->
         </div>
 
         <div id="News" class="tabcontent">

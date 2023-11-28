@@ -9,12 +9,11 @@ function activeLink() {
 
 list.forEach((item) => item.addEventListener("click", activeLink));
 
-let old_toggle = document.querySelector(".old-toggle");
+let toggle = document.querySelector(".toggle");
 let navigation = document.querySelector(".navigation");
 let main = document.querySelector(".main");
 
-console.log(old_toggle);
-old_toggle.onclick = () => {
+toggle.onclick = () => {
   navigation.classList.toggle("active");
   main.classList.toggle("active");
 };
@@ -32,4 +31,4 @@ function openPage(pageName, elmnt, color) {
 }
 
 document.getElementById("defaultOpen").click();
-document.getElementById("defaultOpen").click();
+toggle.click();

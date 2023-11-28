@@ -1,6 +1,6 @@
 /* =========== Google Fonts ============ */
 @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
-
+@import url("../assets/css/globals.css");
 /* =============== Globals ============== */
 * {
   font-family: "Ubuntu", sans-serif;
@@ -9,20 +9,8 @@
   box-sizing: border-box;
 }
 
-:root {
-  --blue: #2a2185;
-  --white: #fff;
-  --gray: #f5f5f5;
-  --black1: #222;
-  --black2: #999;
-  --sideBarColor: #fff;
-  --bodyColor: #f6f9ff;
-  --primaryColor: #012970;
-}
-
 body {
   min-height: 100vh;
-  overflow-x: hidden;
   background-color: var(--bodyColor);
 }
 
@@ -95,7 +83,7 @@ body {
 .navigation ul div a .icon ion-icon {
   font-size: 1.75rem;
   padding: 8px;
-  background: #c0d3ff;
+  background-color: #c0d3ff;    
   border-radius: 10px;
   color: var(--primaryColor);
   box-shadow: 1px 1px 15px #c0d3ff;
@@ -252,22 +240,26 @@ body {
   position: relative;
   width: 400px;
   margin: 0 10px;
+  color: var(--primaryColor);
 }
 
 .search label {
   position: relative;
   width: 100%;
+  color: var(--primaryColor);
 }
 
 .search label input {
   width: 100%;
   height: 40px;
-  border-radius: 40px;
+  border-radius: 10px;
   padding: 5px 20px;
   padding-left: 35px;
   font-size: 18px;
   outline: none;
-  border: 1px solid var(--black2);
+  border: 1px solid var(--primaryColor);
+  color: var(--primaryColor);
+  background-color: var(--white);
 }
 
 .search label ion-icon {
@@ -275,6 +267,7 @@ body {
   top: 0;
   left: 10px;
   font-size: 1.2rem;
+  color: var(--primaryColor);
 }
 
 .user {
@@ -354,7 +347,7 @@ body {
   /* margin-top: 10px; */
 }
 
-.details .recentOrders {
+ .recentOrders {
   position: relative;
   display: grid;
   min-height: 500px;
