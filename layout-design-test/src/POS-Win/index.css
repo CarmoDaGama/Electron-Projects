@@ -67,7 +67,7 @@ body {
   width: 100%;
   display: flex;
   text-decoration: none;
-  color: var(--primaryColor);
+  color: var(--primary-color);
   transition: 0.5s;
 }
 .navigation ul div a .icon {
@@ -85,7 +85,7 @@ body {
   padding: 8px;
   background-color: #c0d3ff;    
   border-radius: 10px;
-  color: var(--primaryColor);
+  color: var(--primary-color);
   box-shadow: 1px 1px 15px #c0d3ff;
 }
 
@@ -121,12 +121,12 @@ body {
   width: 100%;
   display: flex;
   text-decoration: none;
-  color: var(--primaryColor);
+  color: var(--primary-color);
   transition: 0.5s;
 }
 
 .navigation ul li.hovered a {
-  color: var(--primaryColor);
+  color: var(--primary-color);
 }
 
 .navigation ul li a .icon {
@@ -143,10 +143,10 @@ body {
 }
 .navigation ul li.hovered a .icon ion-icon {
   padding: 8px;
-  background: var(--primaryColor);
+  background: var(--primary-color);
   border-radius: 10px;
   color: var(--white);
-  box-shadow: 1px 1px 15px var(--primaryColor);
+  box-shadow: 1px 1px 15px var(--primary-color);
 }
 
 .navigation ul li:hover a .icon ion-icon {
@@ -240,13 +240,13 @@ body {
   position: relative;
   width: 400px;
   margin: 0 10px;
-  color: var(--primaryColor);
+  color: var(--primary-color);
 }
 
 .search label {
   position: relative;
   width: 100%;
-  color: var(--primaryColor);
+  color: var(--primary-color);
 }
 
 .search label input {
@@ -257,8 +257,8 @@ body {
   padding-left: 35px;
   font-size: 18px;
   outline: none;
-  border: 1px solid var(--primaryColor);
-  color: var(--primaryColor);
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
   background-color: var(--white);
 }
 
@@ -267,7 +267,7 @@ body {
   top: 0;
   left: 10px;
   font-size: 1.2rem;
-  color: var(--primaryColor);
+  color: var(--primary-color);
 }
 
 .user {
@@ -313,7 +313,7 @@ body {
   position: relative;
   font-weight: 500;
   font-size: 2.5rem;
-  color: var(--primaryColor);
+  color: var(--primary-color);
 }
 
 .cardBox .card .cardName {
@@ -328,7 +328,7 @@ body {
 }
 
 .cardBox .card:hover {
-  background: var(--primaryColor);
+  background: var(--primary-color);
 }
 .cardBox .card:hover .numbers,
 .cardBox .card:hover .cardName,
@@ -364,12 +364,12 @@ body {
 }
 .cardHeader h2 {
   font-weight: 600;
-  color: var(--primaryColor);
+  color: var(--primary-color);
 }
 .cardHeader .btn {
   position: relative;
   padding: 5px 10px;
-  background: var(--primaryColor);
+  background: var(--primary-color);
   text-decoration: none;
   color: var(--white);
   border-radius: 6px;
@@ -391,7 +391,7 @@ body {
   border-bottom: none;
 }
 .details .recentOrders table tbody tr:hover {
-  background: var(--primaryColor);
+  background: var(--primary-color);
   color: var(--white);
 }
 .details .recentOrders table tr td {
@@ -476,7 +476,7 @@ body {
   color: var(--black2);
 }
 .recentCustomers table tr:hover {
-  background: var(--primaryColor);
+  background: var(--primary-color);
   color: var(--white);
 }
 .recentCustomers table tr:hover td h4 span {
@@ -551,6 +551,6 @@ body {
 
 
 #Home {background-color: #edf1fa;}
-#News {background-color: var(--primaryColor);}
-#Contact {background-color: var(--primaryColor);}
-#About {background-color: var(--primaryColor);}
+#News {background-color: var(--primary-color);}
+#Contact {background-color: var(--primary-color);}
+#About {background-color: var(--primary-color);}
