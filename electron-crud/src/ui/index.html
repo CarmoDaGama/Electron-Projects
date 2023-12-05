@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        #products {
+            height: 100vh;
+            overflow-y: auto;
+            padding: 2px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <title>Electron CRUD</title>
+</head>
+<body>
+    <main>
+        <div class="row">
+            <div class="col-md-6 p-4 my-auto">
+                <form id="productForm" class="card card-body">
+                    <div class="form-group">
+                        <input type="text" id="name" autofocus placeholder="Enter name of the product" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="number" id="price" autofocus placeholder="Product's Price" class="form-control">
+                    </div>
+                    <div class="form-group">
+                       <textarea id="description" cols="30" rows="3" placeholder="Product's Description" class="form-control"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </form>
+            </div>
+
+            <!--Product List-->
+            <div class="col-md-6">
+                <div id="products">
+
+                </div>
+            </div>
+        </div>
+        <script type="module" src="./app.js"></script>
+    </main>
+</body>
+</html>
