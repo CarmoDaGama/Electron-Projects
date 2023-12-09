@@ -10,20 +10,20 @@ function activeLink() {
 list.forEach((item) => item.addEventListener("click", activeLink));
 
 let toggle = document.querySelector(".toggle");
+let iconMenu = document.querySelector("span.icon");
 let navigation = document.querySelector(".navigation");
 let main = document.querySelector(".main");
 
-toggle.onclick = () => {
+iconMenu.onclick = () => {
   navigation.classList.toggle("active");
   main.classList.toggle("active");
 };
 
-function openPage(pageName, elmnt, color) {
-  // Hide all elements with class="tabcontent" by default */
-  var i, tabcontent;
-  tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = "none";
+function openPage(pageName) {
+  var i, tabContent;
+  tabContent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabContent.length; i++) {
+    tabContent[i].style.display = "none";
   }
 
   
@@ -31,4 +31,5 @@ function openPage(pageName, elmnt, color) {
 }
 
 document.getElementById("defaultOpen").click();
-toggle.click();
+iconMenu.click();
+

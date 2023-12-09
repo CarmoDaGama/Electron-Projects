@@ -7,9 +7,8 @@
 
     <!-- ====== Styles ======= -->
     <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="tab_home.css">
 </head>
-<body>
+<body >
     <div class="container">
     <!-- ================== Navigation ================== -->
         <div class="navigation">
@@ -22,7 +21,7 @@
                     </a>
                 </div>
                 <li>
-                    <a href="#" id="defaultOpen" class="tablink" onclick="openPage('Home', this, '#edf1fa')">
+                    <a href="#" id="defaultOpen" class="tablink" onclick="openPage('Home')">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -30,7 +29,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="tablink" onclick="openPage('News', this, '#edf1fa')">
+                    <a href="#" class="tablink" onclick="openPage('News')">
                         <span class="icon">
                             <ion-icon name="people-outline"></ion-icon>
                         </span>
@@ -38,7 +37,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="tablink" onclick="openPage('Contact', this, '#edf1fa')" >
+                    <a href="#" class="tablink" onclick="openPage('Contact')" >
                         <span class="icon">
                             <ion-icon name="chatbubble-outline"></ion-icon>
                         </span>
@@ -46,7 +45,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#"  class="tablink" onclick="openPage('About', this, '#edf1fa')" >
+                    <a href="#"  class="tablink" onclick="openPage('About')" >
                         <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
                         <span class="title">Help</span>
                     </a>
@@ -73,52 +72,13 @@
         </div>
 
     <!-- ================== Main ================== -->
-        <div id="Home" class="tabcontent main">
-            <!-- ---------------- Top-Bar -------------- -->
-            <div class="productsCard">
-                <div class="topbar">
-                    <div class="label toogle">
-                        <div class="resto-name">FACTURA RECIBO</div>
-                        <div class="date">Monday, 27 Nov 2023</div>
-                    </div>
-    
-                    <div class="search">
-                        <label>
-                            <input type="text" placeholder="Procure Aqui">
-                            <ion-icon name="search-outline"></ion-icon>
-                        </label>
-                    </div>
-                </div>
-                <div class="belowbar">
-                    <div class="choose-product-label">
-                        <div class="date">Escolha um produto</div>
-                    </div>
-    
-                    <div class="dropdown">
-                            <select aria-label=".form-select-lg example">
-                                <option selected>Estoque Geral</option>
-                                <option value="1">Bloco A</option>
-                                <option value="2">Bloco Two</option>
-                                <option value="3">Bloco Three</option>
-                            </select>
-                    </div>
-                </div>
-                <div class="products">
-                     
-                </div>
+        <div id="Home" class="tabcontent main" >
+             <div class="salling">
                 
-            </div>
-            <div class="toSale">
-                <div class="SaleProducts">
-
-                </div>
-                <div class="salePayment">
-                    
-                </div>
-            </div>
+             </div>
         </div>
 
-        <div id="News" class="tabcontent">
+        <div id="News" class="tabcontent main">
             <h3>News</h3>
             <p>Some news this fine day!</p>
         </div>

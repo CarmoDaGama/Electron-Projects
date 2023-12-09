@@ -54,12 +54,13 @@ body {
 /*-----------------MENU ICON---------------------*/
 .navigation ul div {
   position: relative;
-  width: 100%;
   list-style: none;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   transition: 0s;
   margin-bottom: 55px;
+  justify-content: center;
+  align-items: center;
 }
 .navigation ul div a {
   position: relative;
@@ -69,6 +70,8 @@ body {
   text-decoration: none;
   color: var(--primary-color);
   transition: 0.5s;
+  justify-content: center;
+  align-items: center;
 }
 .navigation ul div a .icon {
   position: relative;
@@ -98,6 +101,16 @@ body {
   text-align: start;
   white-space: nowrap;
   margin-right: 40px;
+}
+.navigation ul div a .toggle {
+  position: relative;
+  width: 0px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
 }
 /*-----------------END MENU ICON---------------------*/
 
@@ -204,7 +217,7 @@ body {
 
 /* ===================== Main ===================== */
 .main {
-  position: absolute;
+  position: relative;
   width: calc(100% - 300px);
   left: 305px;
   min-height: 100vh;
@@ -216,271 +229,14 @@ body {
   left: 80px;
 }
 
-.topbar {
-  width: 100%;
-  height: 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-}
-
-.toggle {
-  position: relative;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2.5rem;
-  cursor: pointer;
-}
-
-.search {
-  position: relative;
-  width: 400px;
-  margin: 0 10px;
-  color: var(--primary-color);
-}
-
-.search label {
-  position: relative;
-  width: 100%;
-  color: var(--primary-color);
-}
-
-.search label input {
-  width: 100%;
-  height: 40px;
-  border-radius: 10px;
-  padding: 5px 20px;
-  padding-left: 35px;
-  font-size: 18px;
-  outline: none;
-  border: 1px solid var(--primary-color);
-  color: var(--primary-color);
-  background-color: var(--white);
-}
-
-.search label ion-icon {
-  position: absolute;
+#Home {background-color: #edf1fa;}
+#Home .salling {
+  position: fixed;
+  background-color: red;
+  right: 0px;
   top: 0;
-  left: 10px;
-  font-size: 1.2rem;
-  color: var(--primary-color);
-}
-
-.user {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.user img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* ======================= Cards ====================== */
-.cardBox {
-  position: relative;
-  width: 100%;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 30px;
-}
-
-.cardBox .card {
-  position: relative;
-  background: var(--white);
-  padding: 30px;
-  border-radius: 5px;
-  display: flex;
-  justify-content: space-between;
-  cursor: pointer;
-  box-shadow: 0px 0px 35px rgba(0, 39, 105, 0.1);
-}
-
-.cardBox .card .numbers {
-  position: relative;
-  font-weight: 500;
-  font-size: 2.5rem;
-  color: var(--primary-color);
-}
-
-.cardBox .card .cardName {
-  color: var(--black2);
-  font-size: 1.1rem;
-  margin-top: 5px;
-}
-
-.cardBox .card .iconBx {
-  font-size: 3.5rem;
-  color: var(--black2);
-}
-
-.cardBox .card:hover {
-  background: var(--primary-color);
-}
-.cardBox .card:hover .numbers,
-.cardBox .card:hover .cardName,
-.cardBox .card:hover .iconBx {
-  color: var(--white);
-}
-
-/* ================== Order Details List ============== */
-.details {
-  position: relative;
-  width: 100%;
-  padding: 20px;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  grid-gap: 30px;
-  /* margin-top: 10px; */
-}
-
- .recentOrders {
-  position: relative;
-  display: grid;
-  min-height: 500px;
-  background: var(--white);
-  padding: 20px;
-  box-shadow: 0px 0px 20px rgba(0, 26, 71, 0.1);
-  border-radius: 20px;
-}
-
-.details .cardHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-.cardHeader h2 {
-  font-weight: 600;
-  color: var(--primary-color);
-}
-.cardHeader .btn {
-  position: relative;
-  padding: 5px 10px;
-  background: var(--primary-color);
-  text-decoration: none;
-  color: var(--white);
-  border-radius: 6px;
-}
-
-.details table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-}
-.details table thead td {
-  font-weight: 600;
-}
-.details .recentOrders table tr {
-  color: var(--black1);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-.details .recentOrders table tr:last-child {
-  border-bottom: none;
-}
-.details .recentOrders table tbody tr:hover {
-  background: var(--primary-color);
-  color: var(--white);
-}
-.details .recentOrders table tr td {
-  padding: 10px;
-}
-.details .recentOrders table tr td:last-child {
-  text-align: end;
-}
-.details .recentOrders table tr td:nth-child(2) {
-  text-align: end;
-}
-.details .recentOrders table tr td:nth-child(3) {
-  text-align: center;
-}
-.status.delivered {
-  padding: 2px 4px;
-  background: #8de02c;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
-.status.pending {
-  padding: 2px 4px;
-  background: #e9b10a;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
-.status.return {
-  padding: 2px 4px;
-  background: #f00;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
-.status.inProgress {
-  padding: 2px 4px;
-  background: #1795ce;
-  color: var(--white);
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.recentCustomers {
-  position: relative;
-  display: grid;
-  min-height: 500px;
-  padding: 20px;
-  background: var(--white);
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-  border-radius: 20px;
-}
-.recentCustomers .imgBx {
-  position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 50px;
-  overflow: hidden;
-}
-.recentCustomers .imgBx img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.recentCustomers table tr td {
-  padding: 12px 10px;
-}
-.recentCustomers table tr td h4 {
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.2rem;
-}
-.recentCustomers table tr td h4 span {
-  font-size: 14px;
-  color: var(--black2);
-}
-.recentCustomers table tr:hover {
-  background: var(--primary-color);
-  color: var(--white);
-}
-.recentCustomers table tr:hover td h4 span {
-  color: var(--white);
+  bottom: 0;
+  width: 600px;
 }
 
 /* ====================== Responsive Design ========================== */
@@ -495,37 +251,18 @@ body {
   .main {
     width: 100%;
     left: 0;
+    margin: 0;
   }
   .main.active {
     left: 300px;
   }
-  .cardBox {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
-@media (max-width: 768px) {
-  .details {
-    grid-template-columns: 1fr;
-  }
-  .recentOrders {
-    overflow-x: auto;
-  }
-  .status.inProgress {
-    white-space: nowrap;
-  }
-}
+
+  
 
 @media (max-width: 480px) {
-  .cardBox {
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .cardHeader h2 {
-    font-size: 20px;
-  }
-  .user {
-    min-width: 40px;
-  }
+  
   .navigation {
     width: 100%;
     left: -100%;
@@ -550,7 +287,6 @@ body {
 
 
 
-#Home {background-color: #edf1fa;}
 #News {background-color: var(--primary-color);}
 #Contact {background-color: var(--primary-color);}
 #About {background-color: var(--primary-color);}
