@@ -1,0 +1,30 @@
+datasource db {
+  provider = "mysql"
+  url      = "file:./dev.db"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id       Int      @id @default(autoincrement())
+  name     String
+  email    String   @unique
+  ideas    Idea[]
+}
+
+model Idea {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  owner       User     @relation(fields: [ownerId], references: [id])
+  ownerId     Int
+  tags        Tag[]
+}
+
+model Tag {
+  id     Int    @id @default(autoincrement())
+  name   String @unique
+  ideas  Idea[]
+}
