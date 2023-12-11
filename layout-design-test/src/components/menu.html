@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSOFT - FACTURAÇÃO</title>
+
+    <!-- ====== Styles ======= -->
+    <style>
+        /* =========== Google Fonts ============ */
+        @import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+        @import url("../assets/css/globals.css");
+        /* =============== Globals ============== */
+        * {
+            font-family: "Ubuntu", sans-serif;
+            margin: 0px;
+            padding: 0px;
+            outline: 0px;
+            appearance: none;
+            border: 0px;
+            text-decoration: none;
+            box-sizing: border-box;
+        }
+
+        body {
+        min-height: 100vh;
+        background-color: var(--bodyColor);
+        }
+
+        /* =============== Navigation ================ */
+        .navigation {
+            position: fixed;
+            width: 290px;
+            height: 100%;
+            background: var(--sideBarColor);
+            border-left: 10px solid var(--sideBarColor);
+            transition: 0.5s;
+            overflow: hidden;
+            box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.1);
+        }
+        .navigation.active {
+        width: 70px;
+        }
+
+        .navigation ul {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        }
+
+        .navigation ul li {
+        position: relative;
+        width: 100%;
+        list-style: none;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        transition: 0s;
+        margin-bottom: 15px;
+        }
+
+        /*-----------------MENU ICON---------------------*/
+        .navigation ul div {
+        position: relative;
+        list-style: none;
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        transition: 0s;
+        margin-bottom: 55px;
+        justify-content: center;
+        align-items: center;
+        }
+        .navigation ul div a {
+        position: relative;
+        display: block;
+        width: 100%;
+        display: flex;
+        text-decoration: none;
+        color: var(--primary-color);
+        transition: 0.5s;
+        justify-content: center;
+        align-items: center;
+        }
+        .navigation ul div a .icon {
+        position: relative;
+        display: block;
+        min-width: 60px;
+        height: 60px;
+        line-height: 95px;
+        text-align: center;
+        z-index: 10;
+        }
+
+        .navigation ul div a .icon ion-icon {
+        font-size: 1.75rem;
+        padding: 8px;
+        background-color: #c0d3ff;    
+        border-radius: 10px;
+        color: var(--primary-color);
+        box-shadow: 1px 1px 15px #c0d3ff;
+        }
+
+        .navigation ul div a .title {
+        position: relative;
+        display: block;
+        padding: 0 10px;
+        height: 60px;
+        line-height: 79px;
+        text-align: start;
+        white-space: nowrap;
+        margin-right: 40px;
+        }
+        .navigation ul div a .toggle {
+        position: relative;
+        width: 0px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2.5rem;
+        cursor: pointer;
+        }
+        /*-----------------END MENU ICON---------------------*/
+
+
+        .navigation ul li:hover,
+        .navigation ul li.hovered {
+        box-shadow: 2px 2px 10px 1px #c0d3ff;
+        background-color: #edf1fa;
+        border: 5px grey;
+        }
+
+
+        .navigation ul li:last-child {
+        margin-top: 160px;
+        }
+
+
+        .navigation ul li a {
+        position: relative;
+        display: block;
+        width: 100%;
+        display: flex;
+        text-decoration: none;
+        color: var(--primary-color);
+        transition: 0.5s;
+        }
+
+        .navigation ul li.hovered a {
+        color: var(--primary-color);
+        }
+
+        .navigation ul li a .icon {
+        position: relative;
+        display: block;
+        min-width: 60px;
+        height: 60px;
+        line-height: 95px;
+        text-align: center;
+        z-index: 10;
+        }
+        .navigation ul li a .icon ion-icon {
+        font-size: 1.75rem;
+        }
+        .navigation ul li.hovered a .icon ion-icon {
+        padding: 8px;
+        background: var(--primary-color);
+        border-radius: 10px;
+        color: var(--white);
+        box-shadow: 1px 1px 15px var(--primary-color);
+        }
+
+        .navigation ul li:hover a .icon ion-icon {
+        padding: 8px;
+        }
+
+
+
+        .navigation ul li a .title {
+        position: relative;
+        display: block;
+        padding: 0 10px;
+        height: 60px;
+        line-height: 79px;
+        text-align: start;
+        white-space: nowrap;
+        margin-right: 40px;
+        }
+
+        .navigation ul li:hover a .title ,
+        .navigation ul li.hovered a .title  {
+        line-height: 60px;
+        }
+        /* --------- curve outside ---------- */
+
+        .navigation ul li:hover a::before,
+        .navigation ul li.hovered a::before {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: -50px;
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        border-radius: 50%;
+        box-shadow: 35px 35px 0 10px #edf1fa;
+        pointer-events: none;
+        transition: 0.5s;
+        }
+
+        .navigation ul li:hover a::after,
+        .navigation ul li.hovered a::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        bottom: -50px;
+        width: 50px;
+        height: 50px;
+        background-color: transparent;
+        border-radius: 50%;
+        box-shadow: 35px -35px 0 10px #edf1fa;
+        pointer-events: none;
+        transition: 0.5s;
+        }
+
+    </style>
+</head>
+<body >
+    <div class="container">
+    <!-- ================== Navigation ================== -->
+        <div class="navigation">
+            <ul >
+                <div>
+                    <a href="#" class="toggle">
+                        <span class="icon">
+                            <ion-icon size="large" name="storefront"></ion-icon>
+                        </span>
+                    </a>
+                </div>
+                <li>
+                    <a href="#" id="defaultOpen" class="tablink" onclick="openPage('Home')">
+                        <span class="icon">
+                            <ion-icon name="home-outline"></ion-icon>
+                        </span>
+                        <span class="title">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tablink" onclick="openPage('News')">
+                        <span class="icon">
+                            <ion-icon name="people-outline"></ion-icon>
+                        </span>
+                        <span class="title">Customers</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="tablink" onclick="openPage('Contact')" >
+                        <span class="icon">
+                            <ion-icon name="chatbubble-outline"></ion-icon>
+                        </span>
+                        <span class="title">Messages</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#"  class="tablink" onclick="openPage('About')" >
+                        <span class="icon"><ion-icon name="help-outline"></ion-icon></span>
+                        <span class="title">Help</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" >
+                        <span class="icon"><ion-icon name="settings-outline"></ion-icon></span>
+                        <span class="title">Settings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="icon"><ion-icon name="lock-closed-outline"></ion-icon></span>
+                        <span class="title">Password</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" onclick="events.backToMainWin()">
+                        <span class="icon"><ion-icon name="log-out-outline"></ion-icon></span>
+                        <span class="title">Sair</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    <!-- ================== Home ================== -->
+        <div class="tabHome">
+        </div>
+    </div>
+
+    <!-- ======== Scripts ======== -->
+    <script>
+        let list = document.querySelectorAll(".navigation li");
+
+        function activeLink() {
+        list.forEach((item) => {
+            item.classList.remove("hovered");
+        });
+        this.classList.add("hovered");
+        }
+
+        list.forEach((item) => item.addEventListener("click", activeLink));
+
+        let toggle = document.querySelector(".toggle");
+        let iconMenu = document.querySelector("span.icon");
+        let navigation = document.querySelector(".navigation");
+        let main = document.querySelector(".main");
+
+        iconMenu.onclick = () => {
+        navigation.classList.toggle("active");
+        main.classList.toggle("active");
+        };
+
+        function openPage(pageName) {
+        var i, tabContent;
+        tabContent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+
+        
+        document.getElementById(pageName).style.display = "grid";
+        }
+
+        document.getElementById("defaultOpen").click();
+        iconMenu.click();
+
+
+    </script>
+
+
+    <!-- ======= ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

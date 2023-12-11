@@ -13,6 +13,8 @@ let toggle = document.querySelector(".toggle");
 let iconMenu = document.querySelector("span.icon");
 let navigation = document.querySelector(".navigation");
 let main = document.querySelector(".main");
+let tabHome = document.querySelector(".tabHome");
+let btnPayment = document.querySelector("#btnPayment");
 
 iconMenu.onclick = () => {
   navigation.classList.toggle("active");
@@ -26,10 +28,10 @@ function openPage(pageName) {
     tabContent[i].style.display = "none";
   }
 
-  
-  document.getElementById(pageName).style.display = "block";
+  document.getElementById(pageName).style.display = "grid";
 }
-
+btnPayment.addEventListener("click", () => {
+  tabHome.classList.toggle("togglePayment");
+})
 document.getElementById("defaultOpen").click();
 iconMenu.click();
-
