@@ -1,5 +1,6 @@
 :root {
   --primary-color: #012970;
+  --primary-color-variant: #c0d3ff;
   --secondary-color: rgba(146, 136, 224, 1);
   --white: rgba(255, 255, 255, 1);
   --text-dark: rgba(59, 81, 98, 1);
@@ -109,4 +110,11 @@
   --sideBarColor: #fff;
   --bodyColor: #f6f9ff;
   --background-color: #edf1fa;
+  --card-border-radius: 2rem;
+  --border-radius-1: 0.4rem;
+  --border-radius-2: 0.8rem;
+  --border-radius-3: 1.2rem;
+  --card-padding: 1.8rem;
+  --padding-1: 1.2rem;
+  --box-shadow: 0 2rem 3rem var(--primary-color-variant);
 }

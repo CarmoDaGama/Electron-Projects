@@ -73,7 +73,53 @@
 
     <!-- ================== Home ================== -->
         <div class="tabHome">
-            <div class="products"></div>
+            <div class="products">
+                <div class="productHeader">
+                    <div class="search">
+                        <div class="titleDoc">
+                            <label>FACTURAÇÃO</label>
+                            <small>Tuesday, 12 Dec 2023</small>
+                        </div>
+                        <div class="searchInput">
+                            <ion-icon name="search-outline"></ion-icon>
+                            <input type="text" name="productSearch" id="productSearch" placeholder="Search Product">
+                        </div>
+                    </div>
+                    <div class="tabController">
+                        <button class="active">Cards</button>
+                        <button>Grades</button>
+                    </div>
+                    <div class="filter">
+                        <label >Escolha um produto</label>
+                        <div class="wrapper">
+                            <div class="dropdown">
+                                <input type="text" placeholder="Pick a technology" readonly />
+                                <div class="arrow">
+                                    
+                                </div>
+                                <ul class="options">
+                                <li class="option">UI Design</li>
+                                <li class="option">HTML</li>
+                                <li class="option">CSS</li>
+                                <li class="option">JS</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="productCards">
+                    <div class="card">
+                        <div class="box">
+                            <img src="../assets/img/product-1.jpg" alt="">
+                            <div class="details">
+                                <label class="descriptions">Descrição</label>
+                                <label class="price">AKZ 2000.00</label>
+                                <small>40 produtos disponiveis</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="orders">
                 <button id="btnPayment">payment</button>
             </div>
