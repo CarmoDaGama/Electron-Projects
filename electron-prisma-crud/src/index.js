@@ -8,17 +8,36 @@ const prisma = new PrismaClient();
 
 const createWindow = () => {
   const win = new BrowserWindow({
-    width: 800,
+    width: 900,
     width: 600,
     webPreferences: {
       preload: path.join(__dirname, "preload.js"),
     },
   });
 
+
   win.loadFile(path.join(__dirname, "index.html"));
   //win.loadURL("https://github.com");
+  generate();
 };
 
+  function privateKey(){
+    return ``;
+  }
+const generate = () => {
+  console.log(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
+  cmd(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
+}
+const cmd = ( command) => {
+  const { exec } = require("node:child_process");
+  exec(command, (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(stdout);
+  });
+}
 const createUser = async (user) => {
   const newUser = await prisma.user.create({ data: user });
   return newUser;
@@ -43,13 +62,13 @@ app.whenReady().then(() => {
   ipcMain.handle("ping", () => process.env.PORT);
   ipcMain.handle("createUser", async (event, ...args) => {
     //const result = await somePromise(...args);
-    createUser(...args).then((val) => console.log(val));
+     return await createUser(...args);
+    //.then((val) => console.log(val));
   });
   ipcMain.handle("listUsers", async () => {
-    let result;
-    listUsers().then((val) =>  {result = val;});
+    const result = await listUsers();    
     return result;
-  } );
+  });
   createWindow();
 
   app.on("activate", () => {

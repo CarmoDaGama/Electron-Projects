@@ -5,6 +5,6 @@ contextBridge.exposeInMainWorld("versions", {
   chrome: () => process.versions.chrome,
   electron: () => process.versions.electron,
   ping: () => ipcRenderer.invoke("ping"),
-  listUsers: () => ipcRenderer.invoke("listUsers"),
+  listUsers: async () => await ipcRenderer.invoke("listUsers"),
   createUser: (user) => ipcRenderer.invoke("createUser", user),
 });
