@@ -109,12 +109,14 @@
   --black2: #999;
   --sideBarColor: #fff;
   --bodyColor: #f6f9ff;
-  --background-color: #edf1fa;
+  --background-color-variant: #edf1fa;
+  --background-color: #f6f9ff;
   --card-border-radius: 2rem;
   --border-radius-1: 0.4rem;
   --border-radius-2: 0.8rem;
   --border-radius-3: 1.2rem;
   --card-padding: 1.8rem;
   --padding-1: 1.2rem;
-  --box-shadow: 0 2rem 3rem var(--primary-color-variant);
+  --box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+  --box-shadow-variant: 0 0.3rem 0.5rem var(--primary-color-variant);
 }

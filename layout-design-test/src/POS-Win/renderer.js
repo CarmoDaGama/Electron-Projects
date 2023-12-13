@@ -12,7 +12,7 @@ list.forEach((item) => item.addEventListener("click", activeLink));
 let toggle = document.querySelector(".toggle");
 let iconMenu = document.querySelector("span.icon");
 let navigation = document.querySelector(".navigation");
-let main = document.querySelector(".main");
+let main = document.querySelector(".tabHome");
 let tabHome = document.querySelector(".tabHome");
 let btnPayment = document.querySelector("#btnPayment");
 
@@ -28,7 +28,7 @@ function openPage(pageName) {
     tabContent[i].style.display = "none";
   }
 
-  document.getElementById(pageName).style.display = "grid";
+  //document.getElementById(pageName).style.display = "grid";
 }
 btnPayment.addEventListener("click", () => {
   let productCards = document.querySelector(".productCards");
@@ -68,3 +68,16 @@ listOfOptions.forEach((option) => {
 });
 
 dropdown.addEventListener('click', toggleDropdown);
+
+toggleTab = (...elements) => {
+  elements.forEach(element => {
+    element.classList.toggle("active");
+  })
+}
+
+btnCardsTab.addEventListener("click", ()=> {
+  toggleTab(btnCardsTab, btnGridTab);
+});
+btnGridTab.addEventListener("click", () => {
+  toggleTab(btnCardsTab, btnGridTab);
+});
