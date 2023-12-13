@@ -213,6 +213,7 @@
   background: fuchsia;
   display: grid;
   grid-template-rows: 100px auto;
+  position: relative;
 }
 
 /*============== ProductHeader Area ===============*/
@@ -390,6 +391,13 @@
 
 
 
+.container .tabHome .products .productContainer{
+  position: relative;
+  background: var(--background-color) ;
+  gap: 1rem;
+  padding: 1rem;
+
+}
 
 /*==============  ProductCards Area ===============*/
 .container .tabHome .products .productCards {
@@ -400,6 +408,11 @@
   padding: 1rem;
   overflow:auto;
   height: 100vh;
+  position: absolute;
+  left: 50%;
+  width: 100%;
+  transform: translateX(-50%);
+  
 }
 .container .tabHome .products .productCards.disabled {
   display: none;
@@ -473,9 +486,9 @@
 /*==============  ProductList Area ===============*/
 .container .tabHome .products .productList {
   background: var(--background-color) ;
-  display: grid;
-  grid-template-columns:repeat(4, 1fr);
-  gap: 1rem;
+  place-content: center;
+  align-items: center;
+  display: flex;
   padding: 1rem;
   overflow:auto;
   height: 100vh;

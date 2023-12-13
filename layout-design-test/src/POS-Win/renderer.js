@@ -73,6 +73,7 @@ toggleTab = (...elements) => {
   elements.forEach(element => {
     element.classList.toggle("active");
   })
+  document.querySelector(".productCards").classList.toggle("disabled");
 }
 
 btnCardsTab.addEventListener("click", ()=> {
