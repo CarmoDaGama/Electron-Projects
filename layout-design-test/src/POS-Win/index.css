@@ -147,7 +147,7 @@
   background: var(--primary-color);
   border-radius: 10px;
   color: var(--white);
-  box-shadow: 1px 1px 15px var(--primary-color);
+  box-shadow: 1px 1px 5px var(--primary-color);
 }
 
 .navigation ul li:hover a .icon ion-icon {
@@ -493,6 +493,10 @@
   overflow:auto;
   height: 100vh;
   border: dotted 2px rebeccapurple;
+}
+.container .tabHome .products .productList h1{
+  color: var(--primary-color);
+  font-weight: 100;
 }
 
 
