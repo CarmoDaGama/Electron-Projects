@@ -212,7 +212,7 @@
 .container .tabHome .products {
   background: fuchsia;
   display: grid;
-  grid-template-rows: 100px auto;
+  grid-template-rows: 124px auto;
   position: relative;
 }
 
@@ -221,7 +221,7 @@
   background: var(--background-color);
   display: grid;
   grid-template-rows: 2fr 1.5fr;
-  gap: 0.5rem;
+  gap: 24px;
   padding: 0.5rem;
 }
 .container .tabHome .products .productHeader .search {
@@ -266,8 +266,8 @@
   display: inline-flex;
   align-items: center;
   gap: 32px;
-  border-bottom: solid 1px #98b7ff;
-  padding-bottom: -1px;
+  box-shadow: 0 0.1rem 0.01rem var(--primary-color-variant);
+  
 }
 .container .tabHome .products .productHeader .tabController button {
   font-family: Barlow;

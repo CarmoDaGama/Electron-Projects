@@ -31,8 +31,8 @@ function openPage(pageName) {
   //document.getElementById(pageName).style.display = "grid";
 }
 btnPayment.addEventListener("click", () => {
-  let productCards = document.querySelector(".productCards");
-  productCards.classList.toggle("disabled");
+  // let productCards = document.querySelector(".productCards");
+  // productCards.classList.toggle("disabled");
   tabHome.classList.toggle("togglePayment");
 })
 document.getElementById("defaultOpen").click();
