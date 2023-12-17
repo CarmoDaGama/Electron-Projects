@@ -17,7 +17,8 @@ body{
   width: 100vw;
 }
 ::-webkit-scrollbar {
-    width: 12px;
+    width: 10px;
+    height: 3px;
 }
 *::-webkit-scrollbar-track {
     background: var(--background-color);
@@ -40,8 +41,9 @@ body{
   background: var(--sideBarColor);
   border-left: 10px solid var(--sideBarColor);
   transition: 0.5s;
-  overflow: hidden;
+  overflow:unset;
   box-shadow: 0px 0px 20px rgba(1, 41, 112, 0.23);
+  height: 100%;
 }
 .container .navigation ul {
   position: relative;
@@ -70,6 +72,7 @@ body{
   margin-bottom: 55px;
   justify-content: center;
   align-items: center;
+  margin-right: 0.5rem;
 }
 .navigation ul div a {
   position: relative;
@@ -131,7 +134,7 @@ body{
 }
 
 .navigation ul li:last-child {
-  margin-top: 160px;
+  margin-top: 216%;
 }
 
 .navigation ul li a {
@@ -174,7 +177,7 @@ body{
 
 .navigation ul li a .title {
   position: relative;
-  display: block;
+  display: none;
   padding: 0 10px;
   height: 60px;
   line-height: 79px;
@@ -233,6 +236,7 @@ body{
   display: grid;
   grid-template-rows: 124px auto;
   position: relative;
+  padding: 1px;
 }
 .container .tabHome .products .cover {
   display: none;
@@ -425,32 +429,31 @@ body{
 
 .container .tabHome .products .productContainer{
   position: relative;
-  background: var(--background-color) ;
-  gap: 1rem;
-  padding: 1rem;
-
+  background: var(--background-color);
+  padding: 1%;
+  height: 100%;
 }
 
 /*==============  ProductCards Area ===============*/
-.container .tabHome .products .productCards {
+.container .tabHome .products .productContainer .productCards {
   background: var(--background-color) ;
   display: grid;
   grid-template-columns:repeat(4, 1fr);
   gap: 1rem;
   padding: 1rem;
   overflow:auto;
-  height: 100%;
+  height: 97%;
   position: absolute;
   left: 50%;
   width: 100%;
   transform: translateX(-50%);
   
 }
-.container .tabHome .products .productCards.disabled {
+.container .tabHome .products .productContainer .productCards.disabled {
   display: none;
 }
  
-.container .tabHome .products .productCards .card {
+.container .tabHome .products .productContainer .productCards .card {
   width: 192px;
   height: 260px;
   background: transparent;
@@ -458,7 +461,7 @@ body{
   align-items: flex-end;
   position: relative;
 }
-.container .tabHome .products .productCards .card .details {
+.container .tabHome .products .productContainer .productCards .card .details {
   width: 192px;
   height: 226px;
   background: var(--white);
@@ -475,7 +478,7 @@ body{
   place-content: center;
 
 }
-.container .tabHome .products .productCards .card .details .descriptions{
+.container .tabHome .products .productContainer .productCards .card .details .descriptions{
   text-align: center;
   font-family: var(--body-large-regular-font-family);
   font-size: 18px;
@@ -484,7 +487,7 @@ body{
   line-height: 130%;
   color: var(--primary-color);
 }
-.container .tabHome .products .productCards .card .details .price{
+.container .tabHome .products .productContainer .productCards .card .details .price{
   text-align: center;
   font-family: Barlow;
   font-size: 14px;
@@ -492,7 +495,7 @@ body{
   font-weight: 400;
   line-height: 140%
 }
-.container .tabHome .products .productCards .card .details small{
+.container .tabHome .products .productContainer .productCards .card .details small{
   text-align: center;
   font-family: Barlow;
   font-size: 14px;
@@ -500,7 +503,7 @@ body{
   font-weight: 400;
   line-height: 140%;
 }
-.container .tabHome .products .productCards .card img{
+.container .tabHome .products .productContainer .productCards .card img{
   width: 149.612px;
   height: 135.764px;
   position: absolute;
@@ -538,13 +541,15 @@ body{
   gap: 0.25rem;
 }
 .container .tabHome .orders {
-  background: var(--background-color);
-  transition: all 0.5s ease;display: inline-flex;
+  background: tan;
+  transition: all 0.5s ease;
   padding: 15px;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 42px;
   box-shadow: 0px 0px 3px var(--primary-color);
+  height: 60%;
+  overflow: auto;
+  position: relative;
+  display: grid;
+  grid-template-rows: 80% 20%;
 }
 .container .tabHome .orders .ordersContainer {
   display: flex;
@@ -552,6 +557,7 @@ body{
   align-items: flex-start;
   gap: 24px;
   width: 100%;
+  
 }
 .container .tabHome .orders .ordersContainer .ordersHeader{
   display: grid;
@@ -577,7 +583,7 @@ body{
   grid-template-rows: repeat(1, 6.5rem);
   gap: 10px;
   width: 100%;
-  height: 30rem; 
+  height: 36%; 
   border-bottom: solid 1px var(--primary-color-variant);
   border-top: solid 1px var(--primary-color-variant);
   padding-top: 1rem;
@@ -692,13 +698,12 @@ body{
   align-items: flex-start;
   gap: 16px;
 }
+
 .container .tabHome .orders #btnPayment {
-  display: flex;
   width: 361px;
   padding: 14px;
   justify-content: center;
-  align-items: center;
-  gap: 8px;   
+  margin-top: 10px;
   border-radius: 8px;
   color: var(--white);
   background: var(--primary-color);

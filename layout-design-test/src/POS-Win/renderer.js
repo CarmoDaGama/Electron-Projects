@@ -82,3 +82,6 @@ btnCardsTab.addEventListener("click", ()=> {
 btnGridTab.addEventListener("click", () => {
   toggleTab(btnCardsTab, btnGridTab);
 });
+window.addEventListener('reset', () => {
+  alert("gama");
+});
