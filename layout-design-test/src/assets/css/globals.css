@@ -1,6 +1,8 @@
 :root {
   --primary-color: #012970;
   --primary-color-variant: #c0d3ff;
+  --Accents-Red: #FF7CA3;
+  --Accents-Red-variant: #ffa6c1;
   --secondary-color: rgba(146, 136, 224, 1);
   --white: rgba(255, 255, 255, 1);
   --text-dark: rgba(59, 81, 98, 1);
