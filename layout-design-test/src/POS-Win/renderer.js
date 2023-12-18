@@ -32,9 +32,11 @@ function openPage(pageName) {
 }
 btnPayment.addEventListener("click", () => {
   let productsCover = document.querySelector(".cover");
-  productsCover.classList.toggle("active");
-  tabHome.classList.toggle("togglePayment");
-})
+  document.querySelector(".orders").classList.toggle("moveRight");
+ 
+  productsCover.classList.toggle("active"); 
+});
+
 document.getElementById("defaultOpen").click();
 iconMenu.click();
 
@@ -81,7 +83,4 @@ btnCardsTab.addEventListener("click", ()=> {
 });
 btnGridTab.addEventListener("click", () => {
   toggleTab(btnCardsTab, btnGridTab);
-});
-window.addEventListener('reset', () => {
-  alert("gama");
 });
