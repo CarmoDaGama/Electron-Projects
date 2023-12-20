@@ -304,7 +304,7 @@ body{
 .container .tabHome .products .productHeader .tabController {
   display: inline-flex;
   align-items: center;
-  gap: 32px;
+  gap: 12px;
   box-shadow: 0 0.1rem 0.01rem var(--primary-color-variant);
   
 }
@@ -558,6 +558,7 @@ body{
 }
 .container .tabHome .orders.moveRight {
   right: 415px;
+  grid-template-rows: 100% auto;
 }
 .container .tabHome .orders .ordersContainer {
   display: flex;
@@ -572,8 +573,11 @@ body{
   grid-template-rows: 1fr 2fr 1fr;
   width: 100%;
 }
-.container .tabHome .orders .ordersContainer .ordersHeader h2{
+.container .tabHome .orders .ordersContainer .ordersHeader .title{
   color: var(--primary-color);
+}
+.container .tabHome .orders .ordersContainer .ordersHeader div .subTitle{
+  display: none;
 }
 .container .tabHome .orders .ordersContainer .ordersHeader .columnsHeader{
   display: grid;
@@ -740,6 +744,11 @@ body{
   box-shadow: 0px 8px 24px 0px var(--primary-color-variant);
   margin-top: 24px;
 }
+.container .tabHome .orders #btnPayment:hover{
+  color: var(--white);
+  background: var(--primary-color-hover);
+  box-shadow: 0px 8px 24px 0px var(--primary-color-hover);
+}
 .container .tabHome .payment {
   background: var(--background-color);
   transition: all 0.9s ease;
@@ -881,4 +890,39 @@ body{
   font-size: 19px;
   font-weight: 900;
 }
-.container .tabHome .payment .paymentfooter {}
+.container .tabHome .payment .paymentFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  gap: 0.5rem;
+}
+.container .tabHome .payment .paymentFooter button{
+  width: 50%;
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.container .tabHome .payment .paymentFooter .cancel{
+  border: 1px solid var(--Accents-Red);
+  color: var(--Accents-Red);
+}
+.container .tabHome .payment .paymentFooter .cancel:hover{
+  border: 1px solid var(--Accents-Red-variant);
+  color: var(--Accents-Red-variant);
+  box-shadow: 0px 8px 24px 0px var(--Accents-Red-variant);
+
+}
+.container .tabHome .payment .paymentFooter .confirmPayment{
+  color: var(--white);
+  background: var(--primary-color);
+  box-shadow: 0px 8px 24px 0px var(--primary-color-variant);
+}
+
+.container .tabHome .payment .paymentFooter .confirmPayment:hover{
+  color: var(--white);
+  background: var(--primary-color-hover);
+  box-shadow: 0px 8px 24px 0px var(--primary-color-hover);
+}

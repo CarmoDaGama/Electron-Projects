@@ -15,6 +15,12 @@ let navigation = document.querySelector(".navigation");
 let main = document.querySelector(".tabHome");
 let tabHome = document.querySelector(".tabHome");
 let btnPayment = document.querySelector("#btnPayment");
+let btnCancelPayment = document.querySelector(".paymentFooter .cancel");
+let btnConfirmPayment = document.querySelector(".paymentFooter .confirmPayment");
+let lblOrdersTitle = document.querySelector(".ordersHeader .title");
+let lblOrdersSubTitle = document.querySelector(".ordersHeader div .subTitle");
+
+
 
 iconMenu.onclick = () => {
   navigation.classList.toggle("active");
@@ -35,8 +41,21 @@ btnPayment.addEventListener("click", () => {
   document.querySelector(".orders").classList.toggle("moveRight");
  
   productsCover.classList.toggle("active"); 
+  lblOrdersSubTitle.style.display = "block";
+  lblOrdersSubTitle.innerHTML = lblOrdersTitle.innerHTML;
+  lblOrdersTitle.innerHTML = "Confirmação";
+  btnPayment.style.display = "none";
 });
-
+btnCancelPayment.addEventListener('click', () => {
+  
+  let productsCover = document.querySelector(".cover");
+  document.querySelector(".orders").classList.toggle("moveRight");
+  productsCover.classList.toggle("active");
+  
+  lblOrdersTitle.innerHTML = lblOrdersSubTitle.innerHTML;
+  lblOrdersSubTitle.style.display = "none";
+  btnPayment.style.display = "block";
+})
 document.getElementById("defaultOpen").click();
 iconMenu.click();
 
