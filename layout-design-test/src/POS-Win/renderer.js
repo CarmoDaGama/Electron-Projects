@@ -107,3 +107,33 @@ btnCardMethod.addEventListener("click", () => {
       document.querySelector("#btnCardMethod .check").classList.toggle('active');
   }
 });
+
+
+/*========CALC INPUT===========*/
+// This function clears all the values
+function clearScreen() {
+    document.getElementById("result").value = "";
+}
+ 
+// This function displays the values
+function display(value) {
+    let nValue = document.getElementById("result").value + value;
+    if(isNumeric(nValue)) { 
+      document.getElementById("result").value = nValue;
+    }
+}
+let objRegExp = /(^-?\d\d*\.\d*$)|(^-?\d\d*$)|(^-?\.\d\d*$)/;
+var isNumeric = function (val, decimals) {
+  // decimals is not used yet
+  return objRegExp.test(val);
+};
+let inputResul = document.getElementById("result");
+//inputResul.addEventListener("keyup", logKey);
+
+function logKey(e) {
+   let nValue = document.getElementById("result").value + e.key;
+   if (!isNumeric(nValue)) {
+     inputResul.value = inputResul.value.slice(inputResul.value.length, 1);
+   }
+  console.log(e.key);
+}
