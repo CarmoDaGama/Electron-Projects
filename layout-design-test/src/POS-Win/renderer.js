@@ -84,3 +84,26 @@ btnCardsTab.addEventListener("click", ()=> {
 btnGridTab.addEventListener("click", () => {
   toggleTab(btnCardsTab, btnGridTab);
 });
+
+btnCashMethod.addEventListener('click', () => {
+  if(!btnCashMethod.classList.contains('checked')){
+    btnCardMethod.classList.toggle("checked");
+    btnCashMethod.classList.toggle("checked");
+      document
+        .querySelector("#btnCashMethod .check")
+        .classList.toggle("active");
+      document
+        .querySelector("#btnCardMethod .check")
+        .classList.toggle("active");
+    
+  }
+  console.log(document.querySelector("#btnCashMethod .check"));
+});
+btnCardMethod.addEventListener("click", () => {
+  if (!btnCardMethod.classList.contains("checked")) {
+      btnCashMethod.classList.toggle("checked");
+      btnCardMethod.classList.toggle("checked");
+      document.querySelector("#btnCashMethod .check").classList.toggle('active');
+      document.querySelector("#btnCardMethod .check").classList.toggle('active');
+  }
+});
