@@ -1,14 +1,9 @@
-let list = document.querySelectorAll(".navigation li");
-
-function activeLink() {
-  list.forEach((item) => {
-    item.classList.remove("hovered");
-  });
-  this.classList.add("hovered");
+let docType = {
+  name: "FACTURA RECIBO",
+  sigla: "FR"
 }
 
-list.forEach((item) => item.addEventListener("click", activeLink));
-
+let listOptionsMenu = document.querySelectorAll(".navigation li");
 let toggle = document.querySelector(".toggle");
 let iconMenu = document.querySelector("span.icon");
 let navigation = document.querySelector(".navigation");
@@ -19,8 +14,21 @@ let btnCancelPayment = document.querySelector(".paymentFooter .cancel");
 let btnConfirmPayment = document.querySelector(".paymentFooter .confirmPayment");
 let lblOrdersTitle = document.querySelector(".ordersHeader .title");
 let lblOrdersSubTitle = document.querySelector(".ordersHeader div .subTitle");
+let clientName = document.querySelector("#clientName");
+
+// import { testAlert } from "../assets/js/myMain.js";
+// testAlert("***Carmo Da Gama***");
 
 
+/* ******************* NAVIGATION MENU ******************** */
+function activeLink() {
+  listOptionsMenu.forEach((item) => {
+    item.classList.remove("hovered");
+  });
+  this.classList.add("hovered");
+}
+
+listOptionsMenu.forEach((item) => item.addEventListener("click", activeLink));
 
 iconMenu.onclick = () => {
   navigation.classList.toggle("active");
@@ -33,64 +41,9 @@ function openPage(pageName) {
   for (i = 0; i < tabContent.length; i++) {
     tabContent[i].style.display = "none";
   }
-
-  //document.getElementById(pageName).style.display = "grid";
 }
-btnPayment.addEventListener("click", () => {
-  let productsCover = document.querySelector(".cover");
-  document.querySelector(".orders").classList.toggle("moveRight");
- 
-  productsCover.classList.toggle("active"); 
-  lblOrdersSubTitle.style.display = "block";
-  lblOrdersSubTitle.innerHTML = lblOrdersTitle.innerHTML;
-  lblOrdersTitle.innerHTML = "Confirmação";
-  btnPayment.style.display = "none";
-});
-btnCancelPayment.addEventListener('click', () => {
-  
-  let productsCover = document.querySelector(".cover");
-  document.querySelector(".orders").classList.toggle("moveRight");
-  productsCover.classList.toggle("active");
-  
-  lblOrdersTitle.innerHTML = lblOrdersSubTitle.innerHTML;
-  lblOrdersSubTitle.style.display = "none";
-  btnPayment.style.display = "block";
-})
-document.getElementById("defaultOpen").click();
-iconMenu.click();
 
-// Variables
-const dropdown = document.querySelector('.dropdown');
-const input = document.querySelector('input');
-const listOfOptions = document.querySelectorAll('.option');
-const body = document.body;
-
-// Functions
-const toggleDropdown = (event) => {
-  event.stopPropagation();
-  dropdown.classList.toggle('opened');
-};
-
-const selectOption = (event) => {
-  input.value = event.currentTarget.textContent;
-};
-
-const closeDropdownFromOutside = () => {
-  if (dropdown.classList.contains('opened')) {
-    dropdown.classList.remove('opened');
-  }
-};
-// Event Listeners
-
-body.addEventListener('click', closeDropdownFromOutside);
-
-listOfOptions.forEach((option) => {
-  option.addEventListener('click', selectOption);
-});
-
-dropdown.addEventListener('click', toggleDropdown);
-
-toggleTab = (...elements) => {
+const toggleTab = (...elements) => {
   elements.forEach(element => {
     element.classList.toggle("active");
   })
@@ -103,6 +56,35 @@ btnCardsTab.addEventListener("click", ()=> {
 btnGridTab.addEventListener("click", () => {
   toggleTab(btnCardsTab, btnGridTab);
 });
+document.getElementById("defaultOpen").click();
+iconMenu.click();
+
+
+/* ******************* END NAVIGATION MENU ******************** */
+
+
+/* ******************* PAYMENT MENU ******************** */
+btnPayment.addEventListener("click", () => {
+  let productsCover = document.querySelector(".cover");
+  document.querySelector(".orders").classList.toggle("moveRight");
+
+  productsCover.classList.toggle("active");
+  lblOrdersSubTitle.style.display = "block";
+  lblOrdersSubTitle.innerHTML = lblOrdersTitle.innerHTML;
+  lblOrdersTitle.innerHTML = "Confirmação";
+  btnPayment.style.display = "none";
+});
+
+btnCancelPayment.addEventListener('click', () => {
+  
+  let productsCover = document.querySelector(".cover");
+  document.querySelector(".orders").classList.toggle("moveRight");
+  productsCover.classList.toggle("active");
+  
+  lblOrdersTitle.innerHTML = lblOrdersSubTitle.innerHTML;
+  lblOrdersSubTitle.style.display = "none";
+  btnPayment.style.display = "block";
+})
 
 btnCashMethod.addEventListener('click', () => {
   if(!btnCashMethod.classList.contains('checked')){
@@ -126,9 +108,10 @@ btnCardMethod.addEventListener("click", () => {
       document.querySelector("#btnCardMethod .check").classList.toggle('active');
   }
 });
+/* ******************* END PAYMENT MENU ******************** */
 
 
-/*========CALC INPUT===========*/
+/* ******************* CALC INPUT ******************** */
 // This function clears all the values
 function clearScreen() {
     document.getElementById("result").value = "";
@@ -156,3 +139,102 @@ function logKey(e) {
    }
   console.log(e.key);
 }
+/* ******************* END CALC INPUT ******************** */
+
+/* ***************** MODAL AREA **************** */
+// Get the modal
+var modal = $('#modalDialog');
+
+// Get the button that opens the modal
+var btn = $("#btnPayment");
+
+// Get the <span> element that closes the modal
+var span = $(".close");
+
+$(document).ready(function(){
+    // When the user clicks the button, open the modal 
+    btn.on('click', function() {
+        modal.show();
+        clientName.focus();
+        clientName.select();
+    });
+    
+    // When the user clicks on <span> (x), close the modal
+    span.on('click', function() {
+        modal.fadeOut();
+    });
+});
+
+// When the user clicks anywhere outside of the modal, close it
+$('body').bind('click', function(e){
+    if($(e.target).hasClass("modal")){
+        modal.fadeOut();
+    }
+});
+
+/* ***************** END MODAL AREA **************** */
+
+
+/* ***************** CLIENT AREA **************** */
+var btnSave = document.querySelector(".btn.btn-primary");
+
+const saveClient = (clName) => {
+  let clientDetails = document.querySelector(".clientDetails #result");
+  clientDetails.value = clName;
+};
+
+btnSave.addEventListener('click', () => {
+    saveClient(clientName.value);
+    modal.fadeOut();
+})
+
+clientName.addEventListener("keypress", (e) => {
+  if (e.key === "enter") {
+    saveClient(clientName.value);
+    modal.fadeOut();
+    alert("ttt");
+  }
+});
+console.log(clientName);
+/* ***************** END CLIENT AREA **************** */
+
+
+/* ******************* PRODUCTS MENU ******************** */
+let productCards = document.querySelectorAll(".productCards .card");
+let orderList = document.querySelector(".ordersContainer .ordersList");
+orderList.innerHTML = "";
+const addProductInList = () => {
+  let orderList = document.querySelector(".ordersContainer .ordersList");
+  let newOrder = document.createElement("div");
+  newOrder.classList.add("order");
+  newOrder.innerHTML = `
+    <div class="memberUp">
+          <div class="info">
+              <img src="../assets/img/logo.png" alt="">
+              <div class="datails">
+                  <label class="description">
+                      Product
+                  </label>
+                  <small class="price">AKZ 20220</small>
+              </div>
+          </div>
+          <input type="text" id="qtd" placeholder="Qtd" value="2">
+          <label id="orderTotal">AKZ 40440</label>
+      </div>
+      <div class="memberDown">
+          <input type="text" id="orderNote" placeholder="Nota...">
+          <span id="orderRemove"><ion-icon name="trash-outline"></ion-icon></span>
+      </div>
+  `;
+  orderList.appendChild(newOrder);
+
+}
+  productCards.forEach((item) => {
+    item.addEventListener("click", addProductInList)
+    // console.log(item.children[0].querySelector(".details .descriptions"));
+    // // item.children[0].children.forEach((nItem) => {
+    // //   nItem.addEventListener("click", addProductInList);
+    // // })
+    // item.children[1].addEventListener("click", addProductInList);
+  });
+/* ******************* END PRODUCTS MENU ******************** */

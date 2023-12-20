@@ -121,5 +121,6 @@
   --card-padding: 1.8rem;
   --padding-1: 1.2rem;
   --box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+  --box-shadow-variant: 0px 0 30px rgba(1, 41, 112, 0.3);
   --box-shadow-variant: 0 0.3rem 0.5rem var(--primary-color-variant);
 }

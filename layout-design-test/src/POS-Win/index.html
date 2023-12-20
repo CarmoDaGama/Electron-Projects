@@ -414,7 +414,7 @@
                                 <td colspan="3"class="trValueInput"> <input class="display-box" type="text" id="result"  disabled/> </td>
                             
                                 <!-- clearScreen() function clears all the values -->
-                                <td> <input type="button" value="C" onclick="clearScreen()" id="btn" /> </td>
+                                <td> <input type="button" value="C" onclick="clearScreen()" id="btnClear" /> </td>
                             </tr>
                             <tr>
                                 <!-- display() function displays the value of clicked button -->
@@ -437,13 +437,13 @@
                                 <td> <input type="button" value="0" onclick="display('0')" /> </td>
                             
                                 <!-- calculate() function evaluates the mathematical expression -->
-                                <td> <input type="button" value="OK" onclick="calculate()" id="btn" /> </td>
+                                <td> <input type="button" value="OK" onclick="calculate()" id="btnOk" /> </td>
                             </tr>
                         </table>
                     </div>
                     <div class="clientDetails">
                         <h3 for="">Cliente: </h3>
-                        <input type="text" id="result" disabled placeholder="Carmo Da Gama" />
+                        <input type="text" id="result" disabled value="Consumidor Final" />
                     </div>
                 </div>
                 <div class="paymentFooter">
@@ -454,11 +454,30 @@
 
         </div>
         <div class="cover"></div>
+        <!-- The Modal -->
+        <div id="modalDialog" class="modal">
+            <div class="modal-content animate-top">
+                <div class="modal-header">
+                    <h5 class="modal-title">Nome do Cliente</h5>
+                    <button type="button" class="close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="clientName" placeholder="Cliente..." value="Consumidor Final">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close">Sair</button>
+                    <button type="button" class="btn btn-primary">Gravar</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- ======== Scripts ======== -->
-    <script src="renderer.js"></script>
-
+    <script src="../assets/vendor/bootstrap/js/jquery-3.3.1.slim.min.js"></script>
+    <script type="module" src="renderer.js"></script>
+    
 
     <!-- ======= ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

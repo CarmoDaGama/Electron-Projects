@@ -479,6 +479,7 @@ body{
   display: flex;
   flex-direction: column;
   place-content: center;
+  cursor: pointer;
 
 }
 .container .tabHome .products .productContainer .productCards .card .details .descriptions{
@@ -489,6 +490,7 @@ body{
   font-weight: 500;
   line-height: 130%;
   color: var(--primary-color);
+  cursor: pointer;
 }
 .container .tabHome .products .productContainer .productCards .card .details .price{
   text-align: center;
@@ -496,7 +498,8 @@ body{
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
-  line-height: 140%
+  line-height: 140%;
+  cursor: pointer;
 }
 .container .tabHome .products .productContainer .productCards .card .details small{
   text-align: center;
@@ -505,6 +508,7 @@ body{
   font-style: normal;
   font-weight: 400;
   line-height: 140%;
+  cursor: pointer;
 }
 .container .tabHome .products .productContainer .productCards .card img{
   width: 149.612px;
@@ -517,8 +521,16 @@ body{
   display: flex;
   box-shadow: 0 0.02rem 0.1rem var(--primary-color-variant);
   background: transparent;
+  cursor: pointer;
 }
 
+/* .container .tabHome .products .productContainer .productCards .card img:hover,
+.container .tabHome .products .productContainer .productCards .card .details small:hover,
+.container .tabHome .products .productContainer .productCards .card .details .price:hover,
+.container .tabHome .products .productContainer .productCards .card .details .descriptions:hover, */
+.container .tabHome .products .productContainer .productCards .card .details:hover {
+  box-shadow: var(--box-shadow-variant);
+}
 
 
 /*==============  ProductList Area ===============*/
@@ -743,6 +755,7 @@ body{
   background: var(--primary-color);
   box-shadow: 0px 8px 24px 0px var(--primary-color-variant);
   margin-top: 24px;
+  cursor: pointer;
 }
 .container .tabHome .orders #btnPayment:hover{
   color: var(--white);
@@ -835,6 +848,16 @@ body{
 .container .tabHome .payment .paymentMethod .insertCashMethod .calculator tr .trValueInput {
   width: 90%;
 }
+.container .tabHome .payment .paymentMethod .insertCashMethod .calculator tr td #btnOk,
+.container .tabHome .payment .paymentMethod .insertCashMethod .calculator tr td #btnClear {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+.container .tabHome .payment .paymentMethod .insertCashMethod .calculator tr td #btnOk:hover,
+.container .tabHome .payment .paymentMethod .insertCashMethod .calculator tr td #btnClear:hover {
+  background-color: var(--primary-color-hover);
+  color: var(--white);
+}
 .container .tabHome .payment .paymentMethod .insertCashMethod .display-box {
     font-family: 'Orbitron', sans-serif;
     background-color: var(--background-color);
@@ -926,3 +949,145 @@ body{
   background: var(--primary-color-hover);
   box-shadow: 0px 8px 24px 0px var(--primary-color-hover);
 }
+
+/* ****************** Modal Area *************** */
+.animate-top{
+    position:relative;
+    animation:animatetop 0.4s
+}
+@keyframes animatetop{
+    from{top:-300px;opacity:0} 
+    to{top:0;opacity:1}
+}
+.modal {
+  display: none;
+  position: absolute;
+  z-index: 15;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.275);
+}
+
+.modal-content {
+  margin: 5% auto;
+  width: 500px;
+  max-width: 90%;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.175);
+  border-radius: .3rem;
+  outline: 0;
+}
+.modal-header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+}
+.modal-title {
+    margin-bottom: 0;
+    line-height: 1.5;
+    margin-top: 0;
+    font-size: 1.25rem;
+}
+.modal-header .close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+    background-color: transparent;
+    border: 0;
+}
+.close:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.modal-body {
+    flex: 1 1 auto;
+    padding: 1rem;
+}
+.modal-body #clientName {
+  display: flex;
+  width: 100%;
+  padding: 14px 14px 12px 14px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--primary-color-variant);
+  background: var(--white);
+  text-align: left;
+  color: var(--primary-color);
+  font-size: 16px;
+}
+.modal-footer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+    padding: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+.modal-footer>*{
+    margin: 5px;
+}
+
+/* buttons */
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    cursor: pointer;
+}
+.btn:focus, .btn:hover {
+    text-decoration: none;
+}
+.btn-primary {
+    color: #fff;
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: var(--primary-color-hover);
+    border-color: var(--primary-color-hover);
+}
+.btn-secondary {
+    color: #fff;
+    background-color: #7c8287;
+    border-color: #7c8287;
+}
+.btn-secondary:hover {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+/* ****************** End Modal Area *************** */
