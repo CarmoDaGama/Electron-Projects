@@ -21,7 +21,7 @@
                     </a>
                 </div>
                 <li>
-                    <a href="#" id="defaultOpen" class="tablink" onclick="openPage('Home')">
+                    <a href="#" id="defaultOpen" class="tablink" onclick="">
                         <span class="icon">
                             <ion-icon name="home-outline"></ion-icon>
                         </span>
@@ -78,7 +78,7 @@
                     <div class="search">
                         <div class="titleDoc">
                             <label>FACTURAÇÃO</label>
-                            <small>Tuesday, 12 Dec 2023</small>
+                            <small id="currentDate">Tuesday, 12 Dec 2023</small>
                         </div>
                         <div class="searchInput">
                             <ion-icon name="search-outline"></ion-icon>
@@ -214,7 +214,7 @@
             <div class="orders">
                 <div class="ordersContainer" >
                     <div class="ordersHeader">
-                        <h2 class="title">FACTURA #0044</h2>
+                        <h2 class="title" id="lblDocTitle">FACTURA #0044</h2>
                         <div><h4 class="subTitle">FACTURA #0044</h4></div>
                         <div class="columnsHeader">
                             <label>Item</label>
@@ -379,11 +379,11 @@
                     <div class="ordersTotals">
                         <div class="discount">
                             <h4>Disconto</h4>
-                            <h3>AKZ 0,00</h3>
+                            <h3 id="lblDiscount">AKZ 0,00</h3>
                         </div>
                         <div class="subTotal">
-                            <h3>SubTotal</h3>
-                            <h3>AKZ 0,00</h3>
+                            <h3>Total</h3>
+                            <h3 id="lblTotal">AKZ 0,00</h3>
                         </div>
                     </div>
                 </div>
@@ -394,13 +394,17 @@
                     <h2>PAGAMENTO</h2>
                     <h5>2 Metodos de pagamentos disponiveis</h5>
                 </div>
+                <div class="alert" role="alert"  id="lblAlert">
+                    <h4 id="lblAlertMsg">dsdsdsd</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="lblAlert.style.display = 'none' ">X</button>
+              </div>
                 <div class="paymentMethod">
                     <h3>Metedo de Pagamento</h3>
                     <div class="Methods">
-                        <button id="btnCashMethod" class="checked">
+                        <button id="btnCashMethod" class="checked active">
                             <ion-icon size="large" name="cash-outline"></ion-icon>
                             <h4>Numerario</h4>
-                            <ion-icon class="check active" name="checkmark-circle"></ion-icon>
+                            <ion-icon class="check" name="checkmark-circle"></ion-icon>
                         </button>
                         <button id="btnCardMethod">
                             <ion-icon size="large" name="card-outline"></ion-icon>
