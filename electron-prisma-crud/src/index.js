@@ -25,8 +25,14 @@ const createWindow = () => {
     return ``;
   }
 const generate = () => {
-  console.log(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
-  cmd(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
+  // console.log(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
+  // cmd(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
+
+  cmd(
+    '"C:\\Users\\CarmoDaGama\\source\\repos\\KivembaSoft\\SistamaGestaoKSoft23\\InstallerRunnerConfigScript\\bin\\Debug\\InstallerRunnerConfigScript" "{"DocumentoId": "1"}"'
+  );
+  //console.log(`PATH: ${path.join(__dirname, "index.html")}`);
+
 }
 const cmd = ( command) => {
   const { exec } = require("node:child_process");
