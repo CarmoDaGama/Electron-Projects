@@ -29,7 +29,7 @@ const generate = () => {
   // cmd(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
 
   cmd(
-    '"C:\\Users\\CarmoDaGama\\source\\repos\\KivembaSoft\\SistamaGestaoKSoft23\\InstallerRunnerConfigScript\\bin\\Debug\\InstallerRunnerConfigScript" "{"DocumentoId": "1"}"'
+    '"C:\\Users\\CarmoDaGama\\source\\repos\\KivembaSoft\\SistamaGestaoKSoft23\\InstallerRunnerConfigScript\\bin\\Debug\\InstallerRunnerConfigScript" "listJson.json" "ticket.pdf"'
   );
   //console.log(`PATH: ${path.join(__dirname, "index.html")}`);
 

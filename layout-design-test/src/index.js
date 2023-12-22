@@ -39,6 +39,25 @@ const createWindow = () => {
   
 };
 
+const generate = () => {
+  // console.log(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
+  // cmd(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
+
+  cmd(
+    '"C:\\Users\\CarmoDaGama\\source\\repos\\KivembaSoft\\SistamaGestaoKSoft23\\InstallerRunnerConfigScript\\bin\\Debug\\InstallerRunnerConfigScript" "listJson.json" "ticket.pdf"'
+  );
+  //console.log(`PATH: ${path.join(__dirname, "index.html")}`);
+};
+const cmd = (command) => {
+  const { exec } = require("node:child_process");
+  exec(command, (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log(stdout);
+  });
+};
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.

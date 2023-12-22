@@ -97,10 +97,17 @@ btnConfirmPayment.addEventListener('click', () => {
   if(verifyPaymentMethodSelected()){
     alert("Success!");
     console.log(currentDocument);
-    console.log(ordersFromDatabase);
+    toNullImg(ordersFromDatabase)
+    console.log((ordersFromDatabase));
+    console.log(JSON.stringify(ordersFromDatabase));
   }
 });
-
+function toNullImg(products){
+  products.forEach(p => {
+    p.ProdutoEstoque.Produto.Imagem = null;
+  })
+}
+/** [{"ProdutoMovimentacaoId":0,"DocumentoId":1,"Documento":{"DocumentoId":1,"ClienteId":1,"Cliente":{"ClienteId":1,"Nome":"Gama"},"TipoDocumentoId":1,"Tipo":{},"TurnoId":1,"Turno":{},"EstoqueId":1,"Estoque":{},"Estado":"ABERTO","EstadoImpressao":"1","Descricao":"","NomeCliente":"Gama","InvoiceNo":"","Hash":"","Mascara":"","Liquidado":false,"NumeroOrdem":1,"DescontoGlobal":0,"Imposto":3360,"Retencao":0,"TotalIliquido":20640,"Total":48000,"DescontoTotal":0,"QtdLinhas":2},"ProdutoEstoqueId":1,"ProdutoEstoque":{"ProdutoEstoqueId":1,"ProductoId":1,"Produto":{"ProdutoId":"1","Nome":"Sapatilha Nike","CategoriaId":2,"Categoria":{"CategoriaId":2,"Nome":"ABC"},"ImpostoId":1,"Imposto":{},"MotivoIsencaoId":1,"MotivoIsencao":{},"Preco":17000,"Custo":0,"Imagem":"../assets/img/product-1.png","CodigoDeBarra":"01","Retencao":0,"ControleEstoque":true,"Vender":true,"Estado":"Activo","Tipo":"Producto"},"EstoqueId":1,"Estoque":{},"NumeroDeSerie":"001","QuantidadeMaxima":100,"QuantidadeMinima":0,"DataDeFabricacao":"2023-12-22T13:14:29.566Z","DataDeExpiracao":"2023-12-22T13:14:29.566Z","DataDeRegistro":"2023-12-22T13:14:29.566Z","Quantidade":69,"UmLote":false,"Estado":"Activo"},"Preco":17000,"Retencao":0,"Quantidade":2,"Total":34000,"Imposto":2380,"Desconto":0,"TotaIliquido":14620,"DescontoPercentagem":0,"TotalIliquido":34000},{"ProdutoMovimentacaoId":1,"DocumentoId":1,"Documento":{"DocumentoId":1,"ClienteId":1,"Cliente":{"ClienteId":1,"Nome":"Gama"},"TipoDocumentoId":1,"Tipo":{},"TurnoId":1,"Turno":{},"EstoqueId":1,"Estoque":{},"Estado":"ABERTO","EstadoImpressao":"","Descricao":"","NomeCliente":"Gama","InvoiceNo":"","Hash":"","Mascara":"","Liquidado":false,"NumeroOrdem":1,"DescontoGlobal":0,"Imposto":3360,"Retencao":0,"TotalIliquido":20640,"Total":48000,"DescontoTotal":0,"QtdLinhas":2},"ProdutoEstoqueId":2,"ProdutoEstoque":{"ProductoId":2,"Produto":{"ProdutoId":"2","Nome":"Relógio Digital","CategoriaId":2,"Categoria":{"CategoriaId":2,"Nome":"ABC"},"ImpostoId":1,"Imposto":{},"MotivoIsencaoId":1,"MotivoIsencao":{},"Preco":7000,"Custo":0,"Imagem":"../assets/img/product-2.png","CodigoDeBarra":"02","Retencao":0,"ControleEstoque":true,"Vender":true,"Estado":"Activo","Tipo":"Producto"},"ProdutoEstoqueId":2,"EstoqueId":1,"Estoque":{},"NumeroDeSerie":"002","QuantidadeMaxima":100,"QuantidadeMinima":0,"DataDeFabricacao":"2023-12-22T13:14:29.566Z","DataDeExpiracao":"2023-12-22T13:14:29.566Z","DataDeRegistro":"2023-12-22T13:14:29.566Z","Quantidade":95,"UmLote":false,"Estado":"Activo"},"Preco":7000,"Retencao":0,"Quantidade":2,"Total":14000,"Imposto":980.0000000000001,"Desconto":0,"TotaIliquido":6020,"DescontoPercentagem":0,"TotalIliquido":14000}] */
 btnCashMethod.addEventListener('click', () => {
   btnCardMethod.classList.remove("checked");
   btnCashMethod.classList.add("checked");
@@ -198,6 +205,7 @@ const saveClient = (clName) => {
   currentDocument.NomeCliente = clName;
   currentDocument.Cliente.ClienteId = 1,
   currentDocument.Cliente.Nome = clName;
+  currentDocument.Cliente.Nif = "99999999";
 };
 
 btnSave.addEventListener('click', () => {
@@ -241,13 +249,13 @@ const createCurrentDocument = () => {
       ClienteId: 1,
       Cliente: {},
       TipoDocumentoId: docType.TipoDocumentoId,
-      Tipo: {},
+      Tipo: docType,
       TurnoId: 1,
       Turno: {},
       EstoqueId: 1,
       Estoque: {},
       Estado: "ABERTO",
-      EstadoImpressao: "",
+      EstadoImpressao: 0,
       Descricao: "",
       NomeCliente: "",
       InvoiceNo: "",
@@ -327,7 +335,7 @@ const loadProductFromDatabase = () => {
         ControleEstoque: true,
         Vender: true,
         Estado: "Activo",
-        Tipo: "Producto",
+        Tipo: 0,
       },
       EstoqueId: 1,
       Estoque: {},
@@ -363,7 +371,7 @@ const loadProductFromDatabase = () => {
         ControleEstoque: true,
         Vender: true,
         Estado: "Activo",
-        Tipo: "Producto",
+        Tipo: 0,
       },
       ProdutoEstoqueId: 2,
       EstoqueId: 1,
@@ -400,7 +408,7 @@ const loadProductFromDatabase = () => {
         ControleEstoque: true,
         Vender: true,
         Estado: "Activo",
-        Tipo: "Producto",
+        Tipo: 0,
       },
       ProdutoEstoqueId: 3,
       EstoqueId: 1,
@@ -437,7 +445,7 @@ const loadProductFromDatabase = () => {
         ControleEstoque: true,
         Vender: true,
         Estado: "Activo",
-        Tipo: "Producto",
+        Tipo: 0,
       },
       ProdutoEstoqueId: 4,
       EstoqueId: 1,
@@ -474,7 +482,7 @@ const loadProductFromDatabase = () => {
         ControleEstoque: true,
         Vender: true,
         Estado: "Activo",
-        Tipo: "Producto",
+        Tipo: 0,
       },
       ProdutoEstoqueId: 5,
       EstoqueId: 1,
@@ -511,7 +519,7 @@ const loadProductFromDatabase = () => {
         ControleEstoque: true,
         Vender: true,
         Estado: "Activo",
-        Tipo: "Producto",
+        Tipo: 0,
       },
       ProdutoEstoqueId: 6,
       EstoqueId: 1,
@@ -548,7 +556,7 @@ const loadProductFromDatabase = () => {
         ControleEstoque: true,
         Vender: true,
         Estado: "Activo",
-        Tipo: "Producto",
+        Tipo: 0,
       },
       ProdutoEstoqueId: 7,
       EstoqueId: 1,
@@ -585,7 +593,7 @@ const loadProductFromDatabase = () => {
         ControleEstoque: true,
         Vender: true,
         Estado: "Activo",
-        Tipo: "Producto",
+        Tipo: 0,
       },
       ProdutoEstoqueId: 8,
       EstoqueId: 1,
@@ -622,7 +630,7 @@ const loadProductFromDatabase = () => {
         ControleEstoque: true,
         Vender: true,
         Estado: "Activo",
-        Tipo: "Producto",
+        Tipo: 0,
       },
       ProdutoEstoqueId: 9,
       EstoqueId: 1,
@@ -659,7 +667,7 @@ const loadProductFromDatabase = () => {
         ControleEstoque: true,
         Vender: true,
         Estado: "Activo",
-        Tipo: "Producto",
+        Tipo: 0,
       },
       ProdutoEstoqueId: 10,
       EstoqueId: 1,
@@ -696,7 +704,7 @@ const loadProductFromDatabase = () => {
         ControleEstoque: true,
         Vender: true,
         Estado: "Activo",
-        Tipo: "Producto",
+        Tipo: 0,
       },
       ProdutoEstoqueId: 11,
       EstoqueId: 1,
@@ -733,7 +741,7 @@ const loadProductFromDatabase = () => {
         ControleEstoque: true,
         Vender: true,
         Estado: "Activo",
-        Tipo: "Producto",
+        Tipo: 0,
       },
       ProdutoEstoqueId: 12,
       EstoqueId: 1,
