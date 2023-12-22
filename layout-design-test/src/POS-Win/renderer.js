@@ -1,3 +1,7 @@
+
+
+ import { MyNumberFormatter } from "../assets/js/myHelpers.js";
+ 
 let listOptionsMenu = document.querySelectorAll(".navigation li");
 let toggle = document.querySelector(".toggle");
 let iconMenu = document.querySelector("span.icon");
@@ -10,9 +14,7 @@ let btnConfirmPayment = document.querySelector(".paymentFooter .confirmPayment")
 let lblOrdersTitle = document.querySelector(".ordersHeader .title");
 let lblOrdersSubTitle = document.querySelector(".ordersHeader div .subTitle");
 let clientName = document.querySelector("#clientName");
-
-// import { testAlert } from "../assets/js/myMain.js";
-// testAlert("***Carmo Da Gama***");
+let hereFormatter = new MyNumberFormatter();
 
 
 /* ******************* NAVIGATION MENU ******************** */
@@ -56,6 +58,7 @@ btnGridTab.addEventListener("click", () => {
 
 /* ******************* PAYMENT MENU ******************** */
 btnPayment.addEventListener("click", () => {
+
   let productsCover = document.querySelector(".cover");
   document.querySelector(".orders").classList.toggle("moveRight");
 
@@ -64,8 +67,12 @@ btnPayment.addEventListener("click", () => {
   lblOrdersSubTitle.innerHTML = lblOrdersTitle.innerHTML;
   lblOrdersTitle.innerHTML = "Confirmação";
   btnPayment.style.display = "none";
+  setPaymentLabel();
 });
 
+const setPaymentLabel = () => {
+  inputResul.value = `${hereFormatter.defaultFormat(currentDocument.Total)}`;
+}
 btnCancelPayment.addEventListener('click', () => {
   
   let productsCover = document.querySelector(".cover");
@@ -76,45 +83,55 @@ btnCancelPayment.addEventListener('click', () => {
   lblOrdersSubTitle.style.display = "none";
   btnPayment.style.display = "block";
 })
+ function verifyPaymentMethodSelected() {
+  if(!btnCardMethod.classList.contains("checked") && 
+     !btnCashMethod.classList.contains("checked"))
+  {
+    alert("Selecione um metodo de pagamento!");
+    return false;
+  } else {
+    return true;
+  }
+}
+btnConfirmPayment.addEventListener('click', () => {
+  if(verifyPaymentMethodSelected()){
+    alert("Success!");
+    console.log(currentDocument);
+    console.log(ordersFromDatabase);
+  }
+});
 
 btnCashMethod.addEventListener('click', () => {
-  if(!btnCashMethod.classList.contains('checked')){
-    btnCardMethod.classList.toggle("checked");
-    btnCashMethod.classList.toggle("checked");
-      document
-        .querySelector("#btnCashMethod .check")
-        .classList.toggle("active");
-      document
-        .querySelector("#btnCardMethod .check")
-        .classList.toggle("active");
-    
-  }
-  console.log(document.querySelector("#btnCashMethod .check"));
+  btnCardMethod.classList.remove("checked");
+  btnCashMethod.classList.add("checked");
+  document.querySelector("#btnCardMethod .check").classList.remove("active");
+  document.querySelector("#btnCashMethod .check").classList.add("active");
 });
+
 btnCardMethod.addEventListener("click", () => {
-  if (!btnCardMethod.classList.contains("checked")) {
-      btnCashMethod.classList.toggle("checked");
-      btnCardMethod.classList.toggle("checked");
-      document.querySelector("#btnCashMethod .check").classList.toggle('active');
-      document.querySelector("#btnCardMethod .check").classList.toggle('active');
-  }
+  btnCashMethod.classList.remove("checked");
+  btnCardMethod.classList.add("checked");
+  document.querySelector("#btnCashMethod .check").classList.remove('active');
+  document.querySelector("#btnCardMethod .check").classList.add('active');
 });
 /* ******************* END PAYMENT MENU ******************** */
 
 
 /* ******************* CALC INPUT ******************** */
 // This function clears all the values
-function clearScreen() {
+const clearScreen = () => {
     document.getElementById("result").value = "";
 }
- 
+btnClear.addEventListener("click", clearScreen);
+let listInputsCalc = document.querySelectorAll("table tbody tr td input");
+listInputsCalc.forEach(inputCalc => {
+  if(inputCalc.id === ''){
+    inputCalc.addEventListener("click", () => { display(inputCalc.value) });
+  }
+})
 // This function displays the values
-function display(value) {
-    let nValue = document.getElementById("result").value + value;
-    if(isNumeric(nValue)) { 
-      document.getElementById("result").value = nValue;
-    }
-}
+
+
 let objRegExp = /(^-?\d\d*\.\d*$)|(^-?\d\d*$)|(^-?\.\d\d*$)/;
 var isNumeric = function (val, decimals) {
   // decimals is not used yet
@@ -128,7 +145,13 @@ function logKey(e) {
    if (!isNumeric(nValue)) {
      inputResul.value = inputResul.value.slice(inputResul.value.length, 1);
    }
-  console.log(e.key);
+  //console.log(e.key);
+}
+function display(value) {
+    let nValue = document.getElementById("result").value + value;
+    if(isNumeric(nValue)) { 
+      document.getElementById("result").value = nValue;
+    }
 }
 /* ******************* END CALC INPUT ******************** */
 
@@ -172,6 +195,9 @@ var btnSave = document.querySelector(".btn.btn-primary");
 const saveClient = (clName) => {
   let clientDetails = document.querySelector(".clientDetails #result");
   clientDetails.value = clName;
+  currentDocument.NomeCliente = clName;
+  currentDocument.Cliente.ClienteId = 1,
+  currentDocument.Cliente.Nome = clName;
 };
 
 btnSave.addEventListener('click', () => {
@@ -200,7 +226,7 @@ let currentDocument = null;
 
 const loadDocType = () => {
   docType = {Nome: "FACTURA RECIBO", Sigla: "FR", TipoDocumentoId: 1}
-  lblDocTitle.innerHTML = ` ${docType.Nome} #0000 `;
+  setLabelsInPage();
 }
 const notExistsDocument = () => {
   return currentDocument === null || currentDocument === undefined || currentDocument.DocumentoId == 0;
@@ -208,7 +234,7 @@ const notExistsDocument = () => {
 const createCurrentDocument = () => {
   if(notExistsDocument()){
     currentDocument = {
-      DocumentoId: 0,
+      DocumentoId: 1,
       DataFacturacao: undefined,
       DataVencimento: undefined,
       DataUltimaActualizacao: undefined,
@@ -228,7 +254,7 @@ const createCurrentDocument = () => {
       Hash: "",
       Mascara: "",
       Liquidado: false,
-      NumeroOrdem: "",
+      NumeroOrdem: 1,
       DescontoGlobal: 0,
       Imposto: getTotalTax(),
       Retencao: getTotalRetention(),
@@ -246,12 +272,22 @@ const updateCurrentDocument = () => {
       currentDocument.Total = getGrossTotal();
       currentDocument.DescontoTotal = getTotalDiscount();
       currentDocument.QtdLinhas = getTotalLines();
-      setTotalsInPage();
+      setLabelsInPage();
 }
 
-const setTotalsInPage = () => {
-  lblTotal.innerHTML = `AKZ ${currentDocument.Total}`;
-  lblDiscount.innerHTML = `AKZ ${currentDocument.DescontoTotal}`;
+const setLabelsInPage = () => {
+  if(!notExistsDocument()){
+    lblTotal.innerHTML = `AKZ ${hereFormatter.defaultFormat(currentDocument.Total)}`;
+    lblDiscount.innerHTML = `AKZ ${hereFormatter.defaultFormat(currentDocument.DescontoTotal)}`;
+    lblDocTitle.innerHTML = `
+    ${docType.Nome} 
+    #${new Intl.NumberFormat("pt-PT", {
+      minimumIntegerDigits: 3,
+      minimumFractionDigits: 0,
+    }).format(currentDocument.NumeroOrdem)} `;
+  }
+
+  //minimumIntegerDigits
 }
 const loadOpennedDocument = () => {
   loadDocType();
@@ -744,6 +780,9 @@ const loadProductsInPage = (search) => {
       "click",
       () => {
         addProductInList(getProdutStockInPageById(item.dataset.id))
+        if(orderList.children.length > 0 && btnPayment.disabled){
+          btnPayment.disabled = false;
+        }
       }
     );
   });
@@ -873,13 +912,11 @@ const addOrderInDatabase = (productInStock) => {
     existedOrder.Total = productInStock.Produto.Preco * existedOrder.Quantidade;
   }
   updateCurrentDocument();
-  console.log(ordersFromDatabase);
 }
 
 const addProductInList = (productInStock) => {
   addOrderInDatabase(productInStock);
   //loadOrdersFromDatabase();
-  let orderList = document.querySelector(".ordersContainer .ordersList");
   orderList.innerHTML = "";
   ordersFromDatabase.forEach((order) => {    
     let newOrder = document.createElement("div");
@@ -921,6 +958,7 @@ const InitPage = () =>{
   orderList.innerHTML = "";
   loadOpennedDocument();
   loadProductsInPage();
+  btnPayment.disabled = true;
 }
 
 InitPage();
