@@ -19,6 +19,8 @@ const createWindow = () => {
   win.loadFile(path.join(__dirname, "index.html"));
   //win.loadURL("https://github.com");
   generate();
+  win.loadFile(path.join(".\\ticket.pdf"));
+
 };
 
   function privateKey(){
@@ -27,9 +29,10 @@ const createWindow = () => {
 const generate = () => {
   // console.log(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
   // cmd(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
-
+  let pathRunner =
+    '"C:\\Users\\CarmoDaGama\\source\\repos\\KivembaSoft\\SistamaGestaoKSoft23\\InstallerRunnerConfigScript\\bin\\Debug\\InstallerRunnerConfigScript"';
   cmd(
-    '"C:\\Users\\CarmoDaGama\\source\\repos\\KivembaSoft\\SistamaGestaoKSoft23\\InstallerRunnerConfigScript\\bin\\Debug\\InstallerRunnerConfigScript" "listJson.json" "ticket.pdf"'
+    `${pathRunner} "listJson.json" "ticket.pdf"`
   );
   //console.log(`PATH: ${path.join(__dirname, "index.html")}`);
 
