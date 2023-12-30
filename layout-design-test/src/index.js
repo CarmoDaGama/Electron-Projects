@@ -3,7 +3,7 @@ const path = require('path');
 const util = require("node:util");
 const exec = util.promisify(require("node:child_process").exec);
 const pathRunnerUtils = "C:\\Users\\CarmoDaGama\\source\\repos\\KivembaSoft\\SistamaGestaoKSoft23\\InstallerRunnerConfigScript\\bin\\Debug\\InstallerRunnerConfigScript";
-
+require("dotenv").config();
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
   app.quit();
@@ -23,7 +23,7 @@ const createWindow = () => {
   nativeTheme.themeSource = 'light';
   Menu.setApplicationMenu(null);
   mainWindow.loadFile(path.join(__dirname, "Login-Win", 'index.html'));
-  //mainWindow.maximize();
+  mainWindow.maximize();
   mainWindow.show();
   
   ipcMain.handle("login", () => {
@@ -34,8 +34,6 @@ const createWindow = () => {
   });
   ipcMain.handle("intoPos", () => {
     generate(mainWindow);
-    //mainWindow.loadFile(path.join("C:\\Users\\CarmoDaGama\\source\\repos\\KivembaSoft\\SistamaGestaoKSoft23\\InstallerRunnerConfigScript\\bin\\Debug\\listJson.json"));
-    //mainWindow.loadFile(path.join(__dirname, "POS-Win", "index.html"));
   });
   ipcMain.handle("backToMainWin", () => {
     mainWindow.loadFile(path.join(__dirname, "indexMain.html"));
@@ -60,7 +58,6 @@ const generate =  (window) => {
   
 };
 const cmd = async (command) => {
-  //console.log(command);
   const { stdout, stderr } = await exec(command);
   console.log('stdout:', stdout);
   console.error('stderr:', stderr);
