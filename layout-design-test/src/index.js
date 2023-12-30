@@ -1,5 +1,8 @@
 const { app, BrowserWindow, Menu, nativeTheme, ipcMain } = require("electron");
 const path = require('path');
+const util = require("node:util");
+const exec = util.promisify(require("node:child_process").exec);
+const pathRunnerUtils = "C:\\Users\\CarmoDaGama\\source\\repos\\KivembaSoft\\SistamaGestaoKSoft23\\InstallerRunnerConfigScript\\bin\\Debug\\InstallerRunnerConfigScript";
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) {
@@ -20,7 +23,7 @@ const createWindow = () => {
   nativeTheme.themeSource = 'light';
   Menu.setApplicationMenu(null);
   mainWindow.loadFile(path.join(__dirname, "Login-Win", 'index.html'));
-  mainWindow.maximize();
+  //mainWindow.maximize();
   mainWindow.show();
   
   ipcMain.handle("login", () => {
@@ -30,7 +33,9 @@ const createWindow = () => {
     mainWindow.loadFile(path.join(__dirname, "Login-Win", "index.html"));
   });
   ipcMain.handle("intoPos", () => {
-    mainWindow.loadFile(path.join(__dirname, "POS-Win", "index.html"));
+    generate(mainWindow);
+    //mainWindow.loadFile(path.join("C:\\Users\\CarmoDaGama\\source\\repos\\KivembaSoft\\SistamaGestaoKSoft23\\InstallerRunnerConfigScript\\bin\\Debug\\listJson.json"));
+    //mainWindow.loadFile(path.join(__dirname, "POS-Win", "index.html"));
   });
   ipcMain.handle("backToMainWin", () => {
     mainWindow.loadFile(path.join(__dirname, "indexMain.html"));
@@ -39,36 +44,33 @@ const createWindow = () => {
   
 };
 
-const generate = () => {
-  // console.log(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
-  // cmd(`echo "${privateKey()}" > ${path.join(__dirname, "pKey.txt")}`);
-
+const generate =  (window) => {
+  console.log('into Generate Method!')
   cmd(
-    '"C:\\Users\\CarmoDaGama\\source\\repos\\KivembaSoft\\SistamaGestaoKSoft23\\InstallerRunnerConfigScript\\bin\\Debug\\InstallerRunnerConfigScript" "listJson.json" "ticket.pdf"'
-  );
-  //console.log(`PATH: ${path.join(__dirname, "index.html")}`);
+    `"${pathRunnerUtils}" "${path.join(__dirname, "listJson.json")}" "${path.join(__dirname, "ticket.pdf")}"`
+  )
+    .then((value) => {
+      window.loadFile(path.join(__dirname, "ticket.pdf"))
+      console.log("End Generate Method!");
+    })
+    .catch((reason) => {
+      console.log("=======ERROR Generate Method!");
+      console.log(reason);
+    });
+  
 };
-const cmd = (command) => {
-  const { exec } = require("node:child_process");
-  exec(command, (err, stdout, stderr) => {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log(stdout);
-  });
+const cmd = async (command) => {
+  //console.log(command);
+  const { stdout, stderr } = await exec(command);
+  console.log('stdout:', stdout);
+  console.error('stderr:', stderr);
 };
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
-// Some APIs can only be used after this event occurs.
+
 app.on('ready',() => {
   
    createWindow();
 });
 
-// Quit when all windows are closed, except on macOS. There, it's common
-// for applications and their menu bar to stay active until the user quits
-// explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit();
@@ -76,12 +78,8 @@ app.on('window-all-closed', () => {
 });
 
 app.on('activate', () => {
-  // On OS X it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
     createWindow();
   }
 });
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
