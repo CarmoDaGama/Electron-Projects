@@ -5,4 +5,5 @@ contextBridge.exposeInMainWorld("events", {
   logout: () => ipcRenderer.invoke("logout"),
   intoPos: () => ipcRenderer.invoke("intoPos"),
   backToMainWin: () => ipcRenderer.invoke("backToMainWin"),
+  paymentConfirm: (products) => ipcRenderer.invoke("paymentConfirm", products),
 });

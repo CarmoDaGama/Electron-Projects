@@ -93,13 +93,15 @@ btnCancelPayment.addEventListener('click', () => {
     return true;
   }
 }
-btnConfirmPayment.addEventListener('click', () => {
-  if(verifyPaymentMethodSelected()){
+btnConfirmPayment.addEventListener("click", async () => {
+  if (verifyPaymentMethodSelected()) {
     alert("Success!");
-    console.log(currentDocument);
-    toNullImg(ordersFromDatabase)
-    console.log((ordersFromDatabase));
-    console.log(JSON.stringify(ordersFromDatabase));
+    toNullImg(ordersFromDatabase);
+    await events.paymentConfirm(ordersFromDatabase);
+    clearOperation();
+    // console.log(currentDocument);
+    // console.log((ordersFromDatabase));
+    // console.log(JSON.stringify(ordersFromDatabase));
   }
 });
 function toNullImg(products){
@@ -968,7 +970,13 @@ const InitPage = () =>{
   loadProductsInPage();
   btnPayment.disabled = true;
 }
-
+function clearOperation(){
+  orderList.innerHTML = "";
+  ordersFromDatabase = [];
+  currentDocument = null;
+  setLabelsInPage();
+  inputResul.value= `${hereFormatter.defaultFormat(0)}`;
+}
 InitPage();
 /* **************** INITIALIZATION AREA *************** */
 

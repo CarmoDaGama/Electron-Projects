@@ -35,13 +35,15 @@ const createWindow = () => {
     mainWindow.loadFile(path.join(__dirname, "Login-Win", "index.html"));
   });
   ipcMain.handle("intoPos", () => {
-    generate(mainWindow);
+    mainWindow.loadFile(path.join(__dirname, "POS-Win", "index.html"));
   });
   ipcMain.handle("backToMainWin", () => {
     mainWindow.loadFile(path.join(__dirname, "indexMain.html"));
   });
   
-  
+  ipcMain.handle("paymentConfirm", async (event, ...args) => {
+    generate(...args);
+  });
 };
 let products = [
   {
@@ -388,21 +390,33 @@ let products = [
     TotalIliquido: 81000,
   },
 ];
-const generate =  (window) => {
-  console.log('into Generate Method!')
+const generate =  (listproduct) => {
   let jsonFileName = path.join(__dirname, "listJson.json");
-  fs.writeFileSync(jsonFileName, JSON.stringify(products));
- 
+  fs.writeFileSync(jsonFileName, JSON.stringify(listproduct));
   
   cmd(
     `"${pathRunnerUtils}" -json-file "${jsonFileName}" "${path.join(__dirname, "ticket.pdf")}"`
   )
     .then((value) => {
-      window.loadFile(path.join(__dirname, "ticket.pdf"))
-      console.log("End Generate Method!");
+      console.log(`Value: ${value}`);
+      if (true){
+        pdfWindow = new BrowserWindow({
+          width: 900,
+          height: 900,
+          webPreferences: {
+            //preload: path.join(__dirname, "preload.js"),
+          },
+          show: false,
+          //frame: false,
+        });
+        pdfWindow.loadFile(path.join(__dirname, "ticket.pdf"));
+        pdfWindow.maximize();
+        console.log("Showed Report Pdf!");
+      }else{
+        console.log("Error on Deserializing Object!");        
+      }
     })
     .catch((reason) => {
-      console.log("=======ERROR Generate Method!");
       console.log(reason);
     });
   
@@ -411,6 +425,7 @@ const cmd = async (command) => {
   const { stdout, stderr } = await exec(command);
   console.log('stdout:', stdout);
   console.error('stderr:', stderr);
+  return stdout;
 };
 
 app.on('ready',() => {
