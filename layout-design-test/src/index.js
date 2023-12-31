@@ -393,9 +393,10 @@ let products = [
 const generate =  (listproduct) => {
   let jsonFileName = path.join(__dirname, "listJson.json");
   fs.writeFileSync(jsonFileName, JSON.stringify(listproduct));
-  
+  let docFirst = listproduct[0].Documento;
+  let pdfFileName = path.join(__dirname, docFirst?.Tipo?.Sigla + docFirst?.NumeroOrdem + "_ticket.pdf");
   cmd(
-    `"${pathRunnerUtils}" -json-file "${jsonFileName}" "${path.join(__dirname, "ticket.pdf")}"`
+    `"${pathRunnerUtils}" -json-file "${jsonFileName}" "${pdfFileName}"`
   )
     .then((value) => {
       console.log(`Value: ${value}`);
@@ -409,7 +410,7 @@ const generate =  (listproduct) => {
           show: false,
           //frame: false,
         });
-        pdfWindow.loadFile(path.join(__dirname, "ticket.pdf"));
+        pdfWindow.loadFile(pdfFileName);
         pdfWindow.maximize();
         console.log("Showed Report Pdf!");
       }else{

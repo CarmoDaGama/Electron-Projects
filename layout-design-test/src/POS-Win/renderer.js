@@ -228,8 +228,8 @@ clientName.addEventListener("keypress", (e) => {
 
 /* ******************* DOCUMENTS ******************** */
 let docType = {
-  name: "FACTURA RECIBO",
-  acronym: "FR",
+  Nome: "FACTURA RECIBO",
+  Sigla: "FR",
 };
 
 let currentDocument = null;
