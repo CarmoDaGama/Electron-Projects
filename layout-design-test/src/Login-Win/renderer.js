@@ -11,6 +11,13 @@ function togglePass() {
 
 // Form Validation
 
+var email = document.form1.email.addEventListener("keyup", keyupCheckStuff);
+var email = document.form1.password.addEventListener("keyup", keyupCheckStuff);
+function keyupCheckStuff(e){
+  if(e.key == 'Enter'){
+    checkStuff();
+  }
+}
 function checkStuff() {
   var email = document.form1.email;
   var password = document.form1.password;
@@ -23,14 +30,17 @@ function checkStuff() {
     return false;
   } else {
     msg.innerHTML = "";
+    msg.style.display = "none";
   }
 
   if (password.value == "") {
+    msg.style.display = "block";
     msg.innerHTML = "Por favor, insira sua Palavara Passe";
     password.focus();
     return false;
   } else {
     msg.innerHTML = "";
+    msg.style.display = "none";
   }
   var re =
     /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;

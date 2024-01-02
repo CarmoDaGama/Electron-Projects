@@ -87,7 +87,7 @@ btnCancelPayment.addEventListener('click', () => {
   if(!btnCardMethod.classList.contains("checked") && 
      !btnCashMethod.classList.contains("checked"))
   {
-    alert("Selecione um metodo de pagamento!");
+    myModalAlert("Selecione um metodo de pagamento!");
     return false;
   } else {
     return true;
@@ -95,7 +95,7 @@ btnCancelPayment.addEventListener('click', () => {
 }
 btnConfirmPayment.addEventListener("click", async () => {
   if (verifyPaymentMethodSelected()) {
-    alert("Success!");
+    myModalAlert("Success!");
     toNullImg(ordersFromDatabase);
     await events.paymentConfirm(ordersFromDatabase);
     clearOperation();
@@ -167,6 +167,7 @@ function display(value) {
 /* ***************** MODAL AREA **************** */
 // Get the modal
 var modal = $('#modalDialog');
+var modalMsg = $("#modalDialogMsg");
 
 // Get the button that opens the modal
 var btn = $("#btnPayment");
@@ -185,6 +186,7 @@ $(document).ready(function(){
     // When the user clicks on <span> (x), close the modal
     span.on('click', function() {
         modal.fadeOut();
+        modalMsg.fadeOut();
     });
 });
 
@@ -194,7 +196,15 @@ $('body').bind('click', function(e){
         modal.fadeOut();
     }
 });
-
+msgOk.addEventListener('click', () => {  
+        modalMsg.fadeOut();
+})
+function myModalAlert(msg){
+  
+    lblMsg.innerHTML = `<h4>${msg}</h4>`;
+    modalMsg.show();
+    console.log(lblMsg);
+}
 /* ***************** END MODAL AREA **************** */
 
 
@@ -215,11 +225,10 @@ btnSave.addEventListener('click', () => {
     modal.fadeOut();
 })
 
-clientName.addEventListener("keypress", (e) => {
-  if (e.key === "enter") {
+clientName.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
     saveClient(clientName.value);
     modal.fadeOut();
-    alert("ttt");
   }
 });
 /* ***************** END CLIENT AREA **************** */
@@ -276,13 +285,13 @@ const createCurrentDocument = () => {
   }
 }
 const updateCurrentDocument = () => {  
-      currentDocument.Imposto = getTotalTax();
-      currentDocument.Retencao = getTotalRetention();
-      currentDocument.TotalIliquido= getTotalNetTotal();
-      currentDocument.Total = getGrossTotal();
-      currentDocument.DescontoTotal = getTotalDiscount();
-      currentDocument.QtdLinhas = getTotalLines();
-      setLabelsInPage();
+  currentDocument.Imposto = getTotalTax();
+  currentDocument.Retencao = getTotalRetention();
+  currentDocument.TotalIliquido= getTotalNetTotal();
+  currentDocument.Total = getGrossTotal();
+  currentDocument.DescontoTotal = getTotalDiscount();
+  currentDocument.QtdLinhas = getTotalLines();
+  setLabelsInPage();
 }
 
 const setLabelsInPage = () => {
@@ -301,7 +310,6 @@ const setLabelsInPage = () => {
 }
 const loadOpennedDocument = () => {
   loadDocType();
-
 }
 
 /* ******************* END DOCUMENTS ******************** */
@@ -780,6 +788,7 @@ const loadProductsInPage = (search) => {
           </div>
           <img src="${product.Produto.Imagem}" alt="">
         `;
+
         listProductsCard.appendChild(newProductCard);
       }
     });
@@ -899,7 +908,7 @@ const addOrderInDatabase = (productInStock) => {
   
   if (existedOrder === null || existedOrder === undefined) {
     let newOrder = {
-      ProdutoMovimentacaoId: getTotalLines(),
+      ProdutoMovimentacaoId: getTotalLines() + 1,
       DocumentoId: currentDocument.DocumentoId,
       Documento: currentDocument,
       ProdutoEstoqueId: productInStock.ProdutoEstoqueId,
@@ -927,12 +936,16 @@ const addOrderInDatabase = (productInStock) => {
 const addProductInList = (productInStock) => {
   addOrderInDatabase(productInStock);
   //loadOrdersFromDatabase();
-  orderList.innerHTML = "";
-  ordersFromDatabase.forEach((order) => {    
-    let newOrder = document.createElement("div");
-    newOrder.classList.add("order");
-    newOrder.dataset.id = order.ProdutoMovimentacaoId;
-    newOrder.innerHTML = `
+  loadOrderList();
+
+}
+function loadOrderList(){
+   orderList.innerHTML = "";
+   ordersFromDatabase.forEach((order) => {
+     let newOrder = document.createElement("div");
+     newOrder.classList.add("order");
+     newOrder.dataset.id = order.ProdutoMovimentacaoId;
+     newOrder.innerHTML = `
       <div class="memberUp">
             <div class="info">
                 <img src="${order.ProdutoEstoque.Produto.Imagem}" alt="">
@@ -951,11 +964,27 @@ const addProductInList = (productInStock) => {
             <span id="orderRemove" data-id="${order.ProdutoMovimentacaoId}"><ion-icon name="trash-outline"></ion-icon></span>
         </div>
     `;
-    orderList.appendChild(newOrder);
-  })
-
+     orderList.appendChild(newOrder);
+     let orderToRemve = newOrder.children[1].children[1];  
+     orderToRemve.addEventListener("click", () => {
+         removeOrder(newOrder.dataset.id);
+       });
+   });
+   updateCurrentDocument();
 }
-
+function removeOrder(produtoMovimentacaoId){
+  let orderToRemove = ordersFromDatabase.findIndex((value) => value.ProdutoMovimentacaoId == produtoMovimentacaoId);
+  
+  let newOrdersFromDatabase = [];
+  ordersFromDatabase.forEach((order) => {
+    if (order.ProdutoMovimentacaoId != produtoMovimentacaoId) {
+      newOrdersFromDatabase.push(order);
+    }
+  });
+  ordersFromDatabase = null;
+  ordersFromDatabase = newOrdersFromDatabase;
+  loadOrderList();
+}
 /* ******************* END ORDERS ******************** */
 
 

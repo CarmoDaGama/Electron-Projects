@@ -464,12 +464,31 @@
                         <span aria-hidden="true">x</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="modalBody">
                     <input type="text" id="clientName" placeholder="Cliente..." value="Consumidor Final">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary close">Sair</button>
-                    <button type="button" class="btn btn-primary">Gravar</button>
+                    <button type="button" class="btn btn-primary">Gravar</button>                   
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- The Modal Alert-->
+        <div id="modalDialogMsg" class="modal">
+            <div class="modal-content animate-top">
+                <div class="modal-header">
+                    <h5 class="modal-title">Mensagem</h5>
+                    <button type="button" class="close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <h4 id="lblMsg">Mensagem...</h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close" style="display: none;">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="msgOk">OK</button>
                 </div>
             </div>
         </div>
