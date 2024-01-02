@@ -292,6 +292,7 @@ const updateCurrentDocument = () => {
   currentDocument.DescontoTotal = getTotalDiscount();
   currentDocument.QtdLinhas = getTotalLines();
   setLabelsInPage();
+  setPaymentLabel();
 }
 
 const setLabelsInPage = () => {
@@ -947,29 +948,41 @@ function loadOrderList(){
      newOrder.dataset.id = order.ProdutoMovimentacaoId;
      newOrder.innerHTML = `
       <div class="memberUp">
-            <div class="info">
-                <img src="${order.ProdutoEstoque.Produto.Imagem}" alt="">
-                <div class="datails">
-                    <label class="description">
-                        ${order.ProdutoEstoque.Produto.Nome}
-                    </label>
-                    <small class="price">AKZ ${order.Preco}</small>
-                </div>
-            </div>
-            <input type="text" id="qtd" placeholder="Qtd" value="${order.Quantidade}">
-            <label id="orderTotal">AKZ ${order.Total}</label>
-        </div>
-        <div class="memberDown">
-            <input type="text" id="orderNote" placeholder="Nota...">
-            <span id="orderRemove" data-id="${order.ProdutoMovimentacaoId}"><ion-icon name="trash-outline"></ion-icon></span>
-        </div>
+          <div class="info">
+              <img src="${order.ProdutoEstoque.Produto.Imagem}" alt="">
+              <div class="datails">
+                  <label class="description">
+                      ${order.ProdutoEstoque.Produto.Nome}
+                  </label>
+                  <small class="price">AKZ 20220</small>
+              </div>
+          </div>
+          <label id="orderTotal">AKZ ${order.Preco}</label>
+          <div class="quantity">
+              <span class="minus">&lt;</span>
+              <span>${order.Quantidade}</span>
+              <span class="plus">&gt;</span>
+          </div>
+          <span id="orderRemove"><ion-icon name="trash-outline" data-id="${order.ProdutoMovimentacaoId}"></ion-icon></span>
+      </div>
     `;
+    
      orderList.appendChild(newOrder);
-     let orderToRemve = newOrder.children[1].children[1];  
+     let orderToRemve = newOrder.children[0].children[3]; 
+     let decreaseQtd = newOrder.children[0].children[2].children[0];
+     let elementQtd = newOrder.children[0].children[2].children[1];
+     let increaseQtd = newOrder.children[0].children[2].children[2];
+
      orderToRemve.addEventListener("click", () => {
          removeOrder(newOrder.dataset.id);
-       });
-   });
+     });
+     decreaseQtd.addEventListener("click", () => {
+         decreaseOrder(newOrder.dataset.id);
+     });
+     increaseQtd.addEventListener("click", () => {
+       increaseOrder(newOrder.dataset.id);
+     });
+  });
    updateCurrentDocument();
 }
 function removeOrder(produtoMovimentacaoId){
@@ -984,6 +997,34 @@ function removeOrder(produtoMovimentacaoId){
   ordersFromDatabase = null;
   ordersFromDatabase = newOrdersFromDatabase;
   loadOrderList();
+}
+function decreaseOrder(produtoMovimentacaoId) {
+  ordersFromDatabase.forEach((order) => {
+    if (order.ProdutoMovimentacaoId == produtoMovimentacaoId) {
+      order.Quantidade--;
+      order.Total = calcTotalOrder(order);
+      if(order.Quantidade == 0){
+        removeOrder(produtoMovimentacaoId);
+      }
+      console.log(ordersFromDatabase);
+    }
+  });
+  
+  loadOrderList();
+}
+function increaseOrder(produtoMovimentacaoId) {
+  ordersFromDatabase.forEach((order) => {
+    if (order.ProdutoMovimentacaoId == produtoMovimentacaoId) {
+      order.Quantidade++;
+      order.Total = calcTotalOrder(order);
+      console.log(ordersFromDatabase);
+    }
+  });
+  
+  loadOrderList();
+}
+function calcTotalOrder(order){
+  return order.Preco * order.Quantidade;
 }
 /* ******************* END ORDERS ******************** */
 
