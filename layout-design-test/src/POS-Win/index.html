@@ -422,6 +422,42 @@
             </div>
         </div>
     </div>
+    <!-- The Modal Print-->
+        <div id="modalDialogPrint" class="modal">
+            <div class="modal-content animate-top">
+                <div class="modal-header">
+                    <h5 class="modal-title">Impressão Do Documento</h5>
+                    <button type="button" class="close">
+                        <span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Papel</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" aria-label="Default select example">
+                            <option selected="">Selecione o tamanho do Papel</option>
+                            <option value="1">Ticket</option>
+                            <option value="2">Papel A4</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-sm-2 col-form-label">Impressoras</label>
+                        <div class="col-sm-10">
+                            <select class="form-select" aria-label="Default select example">
+                            <option selected="">Selecione a Impressora</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close" style="display: none;">Cancelar</button>
+                    <button type="button" class="btn btn-primary" id="msgOk">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ======== Scripts ======== -->
     <script src="../assets/vendor/bootstrap/js/jquery-3.3.1.slim.min.js"></script>

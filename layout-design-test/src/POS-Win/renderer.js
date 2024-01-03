@@ -168,6 +168,7 @@ function display(value) {
 // Get the modal
 var modal = $('#modalDialog');
 var modalMsg = $("#modalDialogMsg");
+var modalPrint = $("#modalDialogPrint");
 
 // Get the button that opens the modal
 var btn = $("#btnPayment");
@@ -176,6 +177,7 @@ var btn = $("#btnPayment");
 var span = $(".close");
 
 $(document).ready(function(){
+    modalPrint.show();
     // When the user clicks the button, open the modal 
     btn.on('click', function() {
         modal.show();
