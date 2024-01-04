@@ -1,4 +1,4 @@
-const cmd = async (command) => {
+const commandShell = async (command) => {
     const util = require("node:util");
     const exec = util.promisify(require("node:child_process").exec);
     const { stdout, stderr } = await exec(command);   
@@ -6,7 +6,7 @@ const cmd = async (command) => {
 };
 
 async function getPrinterList(){  
-    const { stdout, stderr } = await cmd("wmic printer list brief");
+    const { stdout, stderr } = await commandShell("wmic printer list brief");
     if (stderr) {
         return;
     }
@@ -23,6 +23,3 @@ async function getPrinterList(){
     }
     return printers;
 }
-
-getPrinterList();
-

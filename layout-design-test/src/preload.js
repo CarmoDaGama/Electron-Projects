@@ -5,5 +5,7 @@ contextBridge.exposeInMainWorld("events", {
   logout: () => ipcRenderer.invoke("logout"),
   intoPos: () => ipcRenderer.invoke("intoPos"),
   backToMainWin: () => ipcRenderer.invoke("backToMainWin"),
-  paymentConfirm: (products) => ipcRenderer.invoke("paymentConfirm", products),
+  getPrinterList: () => ipcRenderer.invoke("getPrinterList"),
+  vewDocument: (products) => ipcRenderer.invoke("vewDocument", products),
+  printDocument: (products) => ipcRenderer.invoke("printDocument", products),
 });

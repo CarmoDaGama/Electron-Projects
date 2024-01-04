@@ -95,19 +95,26 @@ btnCancelPayment.addEventListener('click', () => {
 }
 btnConfirmPayment.addEventListener("click", async () => {
   if (verifyPaymentMethodSelected()) {
-    myModalAlert("Success!");
-    toNullImg(ordersFromDatabase);
-    await events.paymentConfirm(ordersFromDatabase);
+    modalPrint.show()
     clearOperation();
-    // console.log(currentDocument);
-    // console.log((ordersFromDatabase));
-    // console.log(JSON.stringify(ordersFromDatabase));
   }
+});
+printOk.addEventListener('click', async function (){
+    toNullImg(ordersFromDatabase);
+    await events.printDocument(ordersFromDatabase);
+
+});
+printView.addEventListener('click', async function (){
+    toNullImg(ordersFromDatabase);
+    await events.vewDocument(ordersFromDatabase);
+});
+printCancel.addEventListener('click', async function (){
+  modalPrint.fadeOut();
 });
 function toNullImg(products){
   products.forEach(p => {
     p.ProdutoEstoque.Produto.Imagem = null;
-  })
+  });
 }
 /** [{"ProdutoMovimentacaoId":0,"DocumentoId":1,"Documento":{"DocumentoId":1,"ClienteId":1,"Cliente":{"ClienteId":1,"Nome":"Gama"},"TipoDocumentoId":1,"Tipo":{},"TurnoId":1,"Turno":{},"EstoqueId":1,"Estoque":{},"Estado":"ABERTO","EstadoImpressao":"1","Descricao":"","NomeCliente":"Gama","InvoiceNo":"","Hash":"","Mascara":"","Liquidado":false,"NumeroOrdem":1,"DescontoGlobal":0,"Imposto":3360,"Retencao":0,"TotalIliquido":20640,"Total":48000,"DescontoTotal":0,"QtdLinhas":2},"ProdutoEstoqueId":1,"ProdutoEstoque":{"ProdutoEstoqueId":1,"ProductoId":1,"Produto":{"ProdutoId":"1","Nome":"Sapatilha Nike","CategoriaId":2,"Categoria":{"CategoriaId":2,"Nome":"ABC"},"ImpostoId":1,"Imposto":{},"MotivoIsencaoId":1,"MotivoIsencao":{},"Preco":17000,"Custo":0,"Imagem":"../assets/img/product-1.png","CodigoDeBarra":"01","Retencao":0,"ControleEstoque":true,"Vender":true,"Estado":"Activo","Tipo":"Producto"},"EstoqueId":1,"Estoque":{},"NumeroDeSerie":"001","QuantidadeMaxima":100,"QuantidadeMinima":0,"DataDeFabricacao":"2023-12-22T13:14:29.566Z","DataDeExpiracao":"2023-12-22T13:14:29.566Z","DataDeRegistro":"2023-12-22T13:14:29.566Z","Quantidade":69,"UmLote":false,"Estado":"Activo"},"Preco":17000,"Retencao":0,"Quantidade":2,"Total":34000,"Imposto":2380,"Desconto":0,"TotaIliquido":14620,"DescontoPercentagem":0,"TotalIliquido":34000},{"ProdutoMovimentacaoId":1,"DocumentoId":1,"Documento":{"DocumentoId":1,"ClienteId":1,"Cliente":{"ClienteId":1,"Nome":"Gama"},"TipoDocumentoId":1,"Tipo":{},"TurnoId":1,"Turno":{},"EstoqueId":1,"Estoque":{},"Estado":"ABERTO","EstadoImpressao":"","Descricao":"","NomeCliente":"Gama","InvoiceNo":"","Hash":"","Mascara":"","Liquidado":false,"NumeroOrdem":1,"DescontoGlobal":0,"Imposto":3360,"Retencao":0,"TotalIliquido":20640,"Total":48000,"DescontoTotal":0,"QtdLinhas":2},"ProdutoEstoqueId":2,"ProdutoEstoque":{"ProductoId":2,"Produto":{"ProdutoId":"2","Nome":"Relógio Digital","CategoriaId":2,"Categoria":{"CategoriaId":2,"Nome":"ABC"},"ImpostoId":1,"Imposto":{},"MotivoIsencaoId":1,"MotivoIsencao":{},"Preco":7000,"Custo":0,"Imagem":"../assets/img/product-2.png","CodigoDeBarra":"02","Retencao":0,"ControleEstoque":true,"Vender":true,"Estado":"Activo","Tipo":"Producto"},"ProdutoEstoqueId":2,"EstoqueId":1,"Estoque":{},"NumeroDeSerie":"002","QuantidadeMaxima":100,"QuantidadeMinima":0,"DataDeFabricacao":"2023-12-22T13:14:29.566Z","DataDeExpiracao":"2023-12-22T13:14:29.566Z","DataDeRegistro":"2023-12-22T13:14:29.566Z","Quantidade":95,"UmLote":false,"Estado":"Activo"},"Preco":7000,"Retencao":0,"Quantidade":2,"Total":14000,"Imposto":980.0000000000001,"Desconto":0,"TotaIliquido":6020,"DescontoPercentagem":0,"TotalIliquido":14000}] */
 btnCashMethod.addEventListener('click', () => {
@@ -176,7 +183,8 @@ var btn = $("#btnPayment");
 // Get the <span> element that closes the modal
 var span = $(".close");
 
-$(document).ready(function(){
+$(document).ready( function(){
+    
     modalPrint.show();
     // When the user clicks the button, open the modal 
     btn.on('click', function() {
@@ -189,6 +197,7 @@ $(document).ready(function(){
     span.on('click', function() {
         modal.fadeOut();
         modalMsg.fadeOut();
+        modalPrint.fadeOut();
     });
 });
 
@@ -201,11 +210,23 @@ $('body').bind('click', function(e){
 msgOk.addEventListener('click', () => {  
         modalMsg.fadeOut();
 })
+printOk.addEventListener('click', () => {  
+    modalPrint.fadeOut();
+})
 function myModalAlert(msg){
   
     lblMsg.innerHTML = `<h4>${msg}</h4>`;
     modalMsg.show();
-    console.log(lblMsg);
+}
+async function loadPrinters(){
+  events.getPrinterList().then(value => {
+     value.forEach((item) => {
+       selectPrinters.innerHTML += `<option>${item}</option>`;
+     });
+  });
+  //console.log(printers);
+ 
+  console.log(selectPrinters.innerHTML);
 }
 /* ***************** END MODAL AREA **************** */
 
@@ -1041,6 +1062,7 @@ const InitPage = () =>{
   loadOpennedDocument();
   loadProductsInPage();
   btnPayment.disabled = true;
+  loadPrinters();
 }
 function clearOperation(){
   orderList.innerHTML = "";
