@@ -1063,6 +1063,10 @@ body{
 .modal-body {
     flex: 1 1 auto;
     padding: 1rem;
+    color: var(--primary-color);
+}
+.modal-body select{
+    color: var(--primary-color);
 }
 .modal-body #clientName {
   display: flex;
@@ -1132,6 +1136,22 @@ body{
     background-color: #6c757d;
     border-color: #6c757d;
 }
+select {
+    word-wrap: normal;
+}
+button, select {
+    text-transform: none;
+}
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+.modal-content{
+  color: var(--primary-color);
+  top: 15%;
+}
 #modalDialogPrint .modal-body .row {
     --bs-gutter-x: 1.5rem;
     --bs-gutter-y: 0;
@@ -1160,8 +1180,7 @@ body{
 #modalDialogPrint .modal-body .row label {
     display: inline-block;
 }
-#modalDialogPrint .modal-body select {
-  
+#modalDialogPrint .modal-body select {  
   --bs-form-select-bg-img: url(../assets/img/checked.svg);
   display: block;
   width: 100%;
@@ -1169,7 +1188,7 @@ body{
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: var(--bs-body-color);
+  color: var(--primary-color);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -1182,16 +1201,29 @@ body{
   border-radius: var(--bs-border-radius);
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-select {
-    word-wrap: normal;
+
+#modalDialogPrint .modal-footer .optionsButton{
+  display: flex;
+  place-content: center;
+  gap: 0.5rem;
+  width: 100%;
 }
-button, select {
-    text-transform: none;
+
+#modalDialogPrint .modal-footer .optionsButton button{
+  background: var(--background-color);
+  color: var(--primary-color);
+  padding: 0.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0.1rem 0.1rem var(--primary-color-variant);
+  border: 0.0rem solid #98b7ff;
 }
-button, input, optgroup, select, textarea {
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
+#modalDialogPrint .modal-footer .optionsButton button:hover{
+  background: var(--background-color-variant);
+  color: var(--primary-color-hover);
+  padding: 0.5rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 0.1rem 0.1rem #90b1ff;
+  border: 0.0rem solid #98b7ff;
+  transition: all 300ms ease;
 }
 /* ****************** End Modal Area *************** */
