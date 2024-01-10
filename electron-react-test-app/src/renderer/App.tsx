@@ -4,11 +4,13 @@ import './App.css';
 
 function Hello({ author }) {
   return (
-    <div>
+    <div className="bg-[#1da1f2]">
       <div className="Hello">
         <img width="200" alt="icon" src={icon} />
       </div>
-      <h1>electron-react-boilerplate Author: {author}</h1>
+      <h1 className="text-red-500">
+        electron-react-boilerplate Author: {author}
+      </h1>
       <div className="Hello">
         <a
           href="https://electron-react-boilerplate.js.org/"
@@ -39,7 +41,7 @@ function Hello({ author }) {
   );
 }
 
-export default function App({myUser}) {
+export default function App({ myUser }) {
   return (
     <Router>
       <Routes>
